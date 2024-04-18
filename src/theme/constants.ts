@@ -11,6 +11,8 @@ export const THEME_COLORS = {
   gray: '#828282',
   lightGray: '#EFF3F4',
   mediumGray: '#B3B8BB',
+  white: '#FFFFFF',
+  black: '#000000',
 } as const;
 
 export const THEME_FONT_FAMILIES = {

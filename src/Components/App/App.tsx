@@ -1,13 +1,38 @@
+import { createContext, useMemo, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { basicTheme } from '@/theme';
+import { darkTheme, lightTheme } from '@/theme';
+import { ErrorBoundary } from '@/Components/ErrorBoundary';
 
-import { TestH1 } from '../styled';
+type ThemeContextType = {
+  handleToggleTheme: () => void;
+};
 
-export const App = () => (
-  <ThemeProvider theme={basicTheme}>
-    <div>
-      <TestH1>Hello</TestH1>
-    </div>
-  </ThemeProvider>
-);
+const ThemeContext = createContext<ThemeContextType>({
+  handleToggleTheme: () => {},
+});
+
+export const App = () => {
+  const [isLightTheme, setIsLightTheme] = useState<boolean>(true);
+
+  const handleToggleTheme = () => {
+    setIsLightTheme((prev) => !prev);
+  };
+
+  const contextValue = useMemo(
+    () => ({
+      handleToggleTheme,
+    }),
+    [],
+  );
+
+  return (
+    <ErrorBoundary>
+      <ThemeProvider theme={isLightTheme ? lightTheme : darkTheme}>
+        <ThemeContext.Provider value={contextValue}>
+          <div />
+        </ThemeContext.Provider>
+      </ThemeProvider>
+    </ErrorBoundary>
+  );
+};
