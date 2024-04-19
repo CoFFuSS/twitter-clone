@@ -31,11 +31,11 @@
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS",
-      "types": ["node"]
+      "types": ["node", "cypress"]
     }
   },
 
-  "exclude": ["node_modules", "dist", "build", ".vscode"],
+  "exclude": ["node_modules", "dist", "build", ".vscode", "cypress", "**/*.cy.tsx"],
 
-  "include": ["jest.config.ts", "typings/*.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["cypress.config.ts", "jest.config.ts", "typings/*.d.ts", "**/*.ts", "**/*.tsx"]
 }

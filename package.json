@@ -11,6 +11,8 @@
     "stylelint": "stylelint ./ --fix",
     "preview": "vite preview",
     "test": "jest",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "prepare": "husky install"
   },
   "dependencies": {
