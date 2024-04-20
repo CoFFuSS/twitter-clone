@@ -1,1 +1,9 @@
-export const SignInPage = () => <h1>This is signIn page</h1>;
+import { SignUpForm } from '@/Components/SignUpForm';
+
+import { Wrapper } from './styled';
+
+export const SignInPage = () => (
+  <Wrapper>
+    <SignUpForm />
+  </Wrapper>
+);

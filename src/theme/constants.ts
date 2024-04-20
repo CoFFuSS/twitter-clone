@@ -139,4 +139,16 @@ export const THEME_TYPOGRAPHY_VARIANTS: TypographyVariants = {
       line-height: ${20 / 14};
     `}
   `,
+  p4: css`
+    font-family: ${THEME_FONT_FAMILIES.primary};
+    font-size: ${pxToRem(16)};
+    font-weight: ${THEME_FONT_WEIGHT.regular};
+    line-height: ${24 / 16};
+    ${media.lg`
+    font-family: ${THEME_FONT_FAMILIES.primary};
+    font-size: ${pxToRem(18)};
+    font-weight: ${THEME_FONT_WEIGHT.regular};
+    line-height: ${21 / 18};
+  `}
+  `,
 } as const;
