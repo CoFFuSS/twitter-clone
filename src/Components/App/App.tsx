@@ -30,7 +30,14 @@ export const App = () => {
     <ErrorBoundary>
       <ThemeProvider theme={isLightTheme ? lightTheme : darkTheme}>
         <ThemeContext.Provider value={contextValue}>
-          <div />
+          <div>
+            <button
+              onClick={handleToggleTheme}
+              type='submit'
+            >
+              Change Theme
+            </button>
+          </div>
         </ThemeContext.Provider>
       </ThemeProvider>
     </ErrorBoundary>
