@@ -8,6 +8,7 @@ export const THEME_COLORS = {
   secondary: '#000000',
   blue: '#1DA1F2',
   mediumDark: '#333333',
+  softGray: '#C4C4C4',
   gray: '#828282',
   lightGray: '#EFF3F4',
   mediumGray: '#B3B8BB',
@@ -42,6 +43,13 @@ export const THEME_TYPOGRAPHY_VARIANTS: TypographyVariants = {
 
     ${media.lg`
       font-family: ${THEME_FONT_FAMILIES.primary};
+      font-size: ${pxToRem(56)};
+      font-weight: ${THEME_FONT_WEIGHT.black};
+      line-height: ${84 / 56};
+    `}
+
+    ${media.xl`
+      font-family: ${THEME_FONT_FAMILIES.primary};
       font-size: ${pxToRem(76)};
       font-weight: ${THEME_FONT_WEIGHT.black};
       line-height: ${114 / 76};
@@ -55,6 +63,13 @@ export const THEME_TYPOGRAPHY_VARIANTS: TypographyVariants = {
     line-height: ${18 / 13};
 
     ${media.lg`
+      font-family: ${THEME_FONT_FAMILIES.primary};
+      font-size: ${pxToRem(32)};
+      font-weight: ${THEME_FONT_WEIGHT.black};
+      line-height: ${37 / 32};
+    `}
+
+    ${media.xl`
       font-family: ${THEME_FONT_FAMILIES.primary};
       font-size: ${pxToRem(42)};
       font-weight: ${THEME_FONT_WEIGHT.black};
@@ -109,6 +124,19 @@ export const THEME_TYPOGRAPHY_VARIANTS: TypographyVariants = {
       font-size: ${pxToRem(16)};
       font-weight: ${THEME_FONT_WEIGHT.regular};
       line-height: ${18 / 16};
+    `}
+  `,
+  h7: css`
+    font-family: ${THEME_FONT_FAMILIES.primary};
+    font-size: ${pxToRem(10)};
+    font-weight: ${THEME_FONT_WEIGHT.regular};
+    line-height: ${12 / 10};
+
+    ${media.lg`
+      font-family: ${THEME_FONT_FAMILIES.primary};
+      font-size: ${pxToRem(14)};
+      font-weight: ${THEME_FONT_WEIGHT.regular};
+      line-height: ${20 / 14};
     `}
   `,
 } as const;
