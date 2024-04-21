@@ -112,12 +112,26 @@ export const DateContainer = styled.div`
 
 export const SignInButton = styled(DefaultButton)`
   ${({ theme }) => css`
+    align-self: center;
     color: ${theme.colors.white};
     background-color: ${theme.colors.blue};
+
+    ${theme.media.md`
+      width: ${theme.spacing(400)};
+      height: ${theme.spacing(45)};
+    `}
 
     ${theme.media.lg`
       width: ${theme.spacing(670)};
       height: ${theme.spacing(70)};
     `}
+  `}
+`;
+
+export const ErrorMassage = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.secondary};
+
+    ${theme.typography.variant.h3}
   `}
 `;

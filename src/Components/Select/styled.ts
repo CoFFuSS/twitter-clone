@@ -11,7 +11,7 @@ interface Props {
   theme: Theme;
 }
 
-export const StyledSelect = styled.select<Props>`
+export const SelectContainer = styled.select<Props>`
   ${({ theme, width, borderColor, borderRadius }) => css`
     cursor: pointer;
 

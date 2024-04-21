@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-import { StyledSelect } from './styled';
+import { SelectContainer } from './styled';
 
 interface ISelectProps {
   placeholder: string;
@@ -11,7 +11,7 @@ interface ISelectProps {
 
 export const Select = forwardRef<HTMLSelectElement, ISelectProps>(
   ({ placeholder, options, width, ...props }, ref) => (
-    <StyledSelect
+    <SelectContainer
       width={width}
       ref={ref}
       {...props}
@@ -19,6 +19,7 @@ export const Select = forwardRef<HTMLSelectElement, ISelectProps>(
       <option
         value=''
         disabled
+        defaultValue={placeholder}
         selected
       >
         {placeholder}
@@ -31,6 +32,6 @@ export const Select = forwardRef<HTMLSelectElement, ISelectProps>(
           {option}
         </option>
       ))}
-    </StyledSelect>
+    </SelectContainer>
   ),
 );

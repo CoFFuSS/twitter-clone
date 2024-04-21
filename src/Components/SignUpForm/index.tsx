@@ -2,7 +2,6 @@ import { Fragment, useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import twitterLogo from '@/assets/images/twitter-logo-4 1.png';
 import { SignUpDateInputFields, SignUpInputFields } from '@/constants/signUpInputs';
 import { TypeSignup, signupSchema } from '@/utils/signUpFormSchema';
 
@@ -12,14 +11,13 @@ import {
   InfoBlockSpan,
   InfoText,
   InputFieldsContainer,
-  LogoContainer,
   RouterSpan,
   SignInButton,
   Wrapper,
 } from './styled';
 
-import { Select } from '../Select';
 import { InputField } from '../Input/styled';
+import { Select } from '../Select';
 
 export const SignUpForm = () => {
   const {
@@ -43,13 +41,6 @@ export const SignUpForm = () => {
 
   return (
     <Wrapper onSubmit={handleSubmit(onSubmit)}>
-      <LogoContainer>
-        <img
-          src={twitterLogo}
-          alt='twitter-logo'
-        />
-      </LogoContainer>
-
       <FormName>Create an account</FormName>
       <InputFieldsContainer>
         {SignUpInputFields.map(({ placeholder, name, type }) => (
@@ -75,7 +66,7 @@ export const SignUpForm = () => {
         congue.
       </InfoText>
       <DateContainer>
-        {SignUpDateInputFields.map(({ placeholder, options, width, name }) => (
+        {SignUpDateInputFields.map(({ options, placeholder, width, name }) => (
           <Fragment key={placeholder}>
             <Select
               {...register(name)}

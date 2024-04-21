@@ -9,9 +9,9 @@ export const signupSchema = z
     phone: z.string().regex(/^\+375\d{9}$/, 'Phone number must be in the format: +375xxxxxxxxx'),
     email: z.string().email(),
     password: z.string().min(6, 'Password must be 6 or more characters'),
-    month: z.string(),
-    day: z.string(),
-    year: z.string(),
+    month: z.string().min(1, 'Should select month'),
+    day: z.string().min(1, 'Should select day'),
+    year: z.string().min(4, 'Should select year'),
   })
   .required();
 
