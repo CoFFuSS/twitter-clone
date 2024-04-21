@@ -23,6 +23,7 @@ import {
   RightSpan,
   GoogleLogo,
   AuthButton,
+  LogInLink,
 } from './styled';
 
 const FooterRoutes = [
@@ -48,7 +49,7 @@ export const AuthPage = () => {
   const navigate = useNavigate();
 
   const handleLogInWithEmail = () => {
-    navigate(RoutesEnum.LogIn);
+    navigate(RoutesEnum.SignIn);
   };
 
   return (
@@ -89,7 +90,7 @@ export const AuthPage = () => {
             <PrivacyLink>Cookie Use</PrivacyLink>.
           </PrivacyField>
           <LogInField>
-            Already have an account? <PrivacyLink>Log in</PrivacyLink>
+            Already have an account? <LogInLink to={RoutesEnum.LogIn}>Log in</LogInLink>
           </LogInField>
         </InfoBlock>
       </Content>

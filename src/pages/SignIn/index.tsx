@@ -1,7 +1,6 @@
 import { SignUpForm } from '@/Components/SignUpForm';
 import twitterLogo from '@/assets/images/twitter-logo-4 1.png';
-
-import { LogoContainer, Wrapper } from './styled';
+import { LogoContainer, Wrapper } from '@/mixins/formStyleMixins';
 
 export const SignInPage = () => (
   <Wrapper>

@@ -1,8 +1,15 @@
-import { InputField } from '@/Components/Input/styled';
+import { LogInForm } from '@/Components/LogInForm';
+import twitterLogo from '@/assets/images/twitter-logo-4 1.png';
+import { LogoContainer, Wrapper } from '@/mixins/formStyleMixins';
 
 export const LoginPage = () => (
-  <div>
-    <h1>This is Login page</h1>
-    <InputField />
-  </div>
+  <Wrapper>
+    <LogoContainer>
+      <img
+        src={twitterLogo}
+        alt='twitter-logo'
+      />
+    </LogoContainer>
+    <LogInForm />
+  </Wrapper>
 );

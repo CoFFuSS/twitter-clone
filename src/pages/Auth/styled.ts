@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { DefaultButton } from '@/Components/Button/styled';
 
@@ -176,6 +177,13 @@ export const PrivacyField = styled.p`
 `;
 
 export const PrivacyLink = styled.a`
+  ${({ theme }) => css`
+    cursor: pointer;
+    color: ${theme.colors.blue};
+  `}
+`;
+
+export const LogInLink = styled(Link)`
   ${({ theme }) => css`
     cursor: pointer;
     color: ${theme.colors.blue};
