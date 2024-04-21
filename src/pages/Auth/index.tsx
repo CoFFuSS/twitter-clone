@@ -11,7 +11,6 @@ import {
   TwitterLogoContainer,
   Text,
   SubText,
-  SignUpButton,
   ButtonWrapper,
   PrivacyField,
   PrivacyLink,
@@ -19,8 +18,8 @@ import {
   Footer,
   FooterSpan,
   RightSpan,
-  ButtonText,
   GoogleLogo,
+  AuthButton,
 } from './styled';
 
 const FooterRoutes = [
@@ -62,19 +61,17 @@ export const AuthPage = () => (
         <Text>Happening now</Text>
         <SubText>Join Twitter today</SubText>
         <ButtonWrapper>
-          <SignUpButton>
+          <AuthButton>
             <GoogleLogo>
               <img
                 src={googleLogo}
                 alt='google-logo'
               />
             </GoogleLogo>
+            Sign up with Google
+          </AuthButton>
 
-            <ButtonText>Sign up with Google</ButtonText>
-          </SignUpButton>
-          <SignUpButton>
-            <ButtonText>Sign up with phone or email</ButtonText>
-          </SignUpButton>
+          <AuthButton>Sign up with phone or email</AuthButton>
           <PrivacyField>
             By singing up you agree to the <PrivacyLink>Terms of Service</PrivacyLink> and{' '}
             <PrivacyLink>Privacy Policy</PrivacyLink>, including{' '}

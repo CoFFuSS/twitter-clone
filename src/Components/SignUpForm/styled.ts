@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import { DefaultButton } from '../Button/styled';
+
 export const Wrapper = styled.form`
   ${({ theme }) => css`
     display: flex;
@@ -52,15 +54,6 @@ export const InputFieldsContainer = styled.div`
   `}
 `;
 
-export const InputField = styled.input`
-  ${({ theme }) => css`
-    width: ${theme.spacing(670)};
-    height: ${theme.spacing(70)};
-    border: ${theme.spacing(1)} solid ${theme.colors.lightGray};
-    border-radius: ${theme.spacing(6)};
-  `}
-`;
-
 export const RouterSpan = styled.span`
   ${({ theme }) => css`
     color: ${theme.colors.blue};
@@ -90,15 +83,17 @@ export const DateContainer = styled.div`
     display: flex;
     flex-direction: row;
     gap: ${theme.spacing(21)};
-    margin: ${theme.spacing(0, 40)};
+    margin: ${theme.spacing(32, 40)};
   `}
 `;
 
-export const DateInput = styled.input`
+export const SignInButton = styled(DefaultButton)`
   ${({ theme }) => css`
-    width: ${theme.spacing(160)};
-    height: ${theme.spacing(70)};
-    border: ${theme.spacing(1)} solid ${theme.colors.lightGray};
-    border-radius: ${theme.spacing(6)};
+    color: ${theme.colors.white};
+    background-color: ${theme.colors.blue};
+
+    ${theme.media.lg`
+      width: ${theme.spacing(670)};
+  `}
   `}
 `;

@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import { DefaultButton } from '@/Components/Button/styled';
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -116,39 +118,6 @@ export const ButtonWrapper = styled.div`
   `}
 `;
 
-export const SignUpButton = styled.button`
-  ${({ theme }) => css`
-    display: flex;
-
-    cursor: pointer;
-
-    align-items: center;
-    justify-content: center;
-
-    color: ${theme.colors.secondary};
-    text-align: center;
-
-    background-color: ${theme.colors.primary};
-    border: ${theme.spacing(1)} solid ${theme.colors.lightGray};
-    border-radius: ${theme.spacing(42)};
-
-    ${theme.media.lg`
-      width: ${theme.spacing(400)};
-      height: ${theme.spacing(60)};
-    `}
-    &:hover {
-      border-color: ${theme.colors.gray};
-    }
-  `}
-`;
-
-export const ButtonText = styled.p`
-  ${({ theme }) => css`
-    margin: 0;
-    ${theme.typography.variant.h3}
-  `}
-`;
-
 export const GoogleLogo = styled.div`
   ${({ theme }) => css`
     position: relative;
@@ -222,5 +191,17 @@ export const RightSpan = styled.span`
     cursor: pointer;
 
     ${theme.typography.variant.h7}
+  `}
+`;
+
+export const AuthButton = styled(DefaultButton)`
+  ${({ theme }) => css`
+    width: ${theme.spacing(180)};
+    height: ${theme.spacing(40)};
+
+    ${theme.media.lg`
+      width: ${theme.spacing(400)};
+      height: ${theme.spacing(60)};
+    `}
   `}
 `;
