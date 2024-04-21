@@ -5,11 +5,18 @@ import { DefaultButton } from '@/Components/Button/styled';
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 export const Content = styled.div`
-  display: flex;
-  flex-direction: row;
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: row;
+    padding: ${theme.spacing(20)};
+    ${theme.media.lg`
+      padding: 0;
+    `}
+  `}
 `;
 
 export const BackTwitterContainer = styled.div`
@@ -63,16 +70,19 @@ export const InfoBlock = styled.div`
 export const TwitterLogoContainer = styled.div`
   ${({ theme }) => css`
     position: relative;
-    width: ${theme.spacing(14)};
-    height: ${theme.spacing(14)};
+    align-self: center;
+    width: ${theme.spacing(35)};
+    height: ${theme.spacing(35)};
 
     ${theme.media.lg`
+      align-self: start;
       width: ${theme.spacing(35)};
       height: ${theme.spacing(35)};
       margin-bottom: ${theme.spacing(35)};
       `}
 
     ${theme.media.xl`
+      align-self: start;
       width: ${theme.spacing(50)};
       height: ${theme.spacing(50)};
       margin-bottom: ${theme.spacing(57)};
@@ -82,6 +92,7 @@ export const TwitterLogoContainer = styled.div`
 
 export const Text = styled.p`
   ${({ theme }) => css`
+    user-select: none;
     margin: 0;
     color: ${theme.colors.secondary};
     white-space: nowrap;
@@ -98,6 +109,7 @@ export const Text = styled.p`
 
 export const SubText = styled.p`
   ${({ theme }) => css`
+    user-select: none;
     margin: 0;
     color: ${theme.colors.secondary};
     white-space: nowrap;
@@ -110,10 +122,26 @@ export const ButtonWrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
+    gap: ${theme.spacing(10)};
+    margin: ${theme.spacing(15, 0)};
 
     ${theme.media.lg`
       gap: ${theme.spacing(21)};
       margin: ${theme.spacing(31, 0, 31, 0)};
+    `};
+  `}
+`;
+
+export const AuthButton = styled(DefaultButton)`
+  ${({ theme }) => css`
+    align-self: center;
+    width: ${theme.spacing(280)};
+    height: ${theme.spacing(40)};
+
+    ${theme.media.lg`
+    align-self: start;
+      width: ${theme.spacing(400)};
+      height: ${theme.spacing(60)};
     `}
   `}
 `;
@@ -135,6 +163,10 @@ export const GoogleLogo = styled.div`
       height: ${theme.spacing(32)};
       `}
   `}
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const PrivacyField = styled.p`
@@ -177,6 +209,7 @@ export const Footer = styled.footer`
 export const FooterSpan = styled.span`
   ${({ theme }) => css`
     cursor: pointer;
+    user-select: none;
     display: none;
 
     ${theme.typography.variant.h7}
@@ -188,20 +221,6 @@ export const FooterSpan = styled.span`
 
 export const RightSpan = styled.span`
   ${({ theme }) => css`
-    cursor: pointer;
-
     ${theme.typography.variant.h7}
-  `}
-`;
-
-export const AuthButton = styled(DefaultButton)`
-  ${({ theme }) => css`
-    width: ${theme.spacing(180)};
-    height: ${theme.spacing(40)};
-
-    ${theme.media.lg`
-      width: ${theme.spacing(400)};
-      height: ${theme.spacing(60)};
-    `}
   `}
 `;

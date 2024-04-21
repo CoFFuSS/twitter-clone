@@ -8,6 +8,9 @@ export const DefaultButton = styled.button`
     align-items: center;
     justify-content: center;
 
+    width: ${theme.spacing(200)};
+    height: ${theme.spacing(40)};
+
     color: ${theme.colors.secondary};
     text-align: center;
 

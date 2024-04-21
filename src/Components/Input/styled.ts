@@ -1,24 +1,23 @@
 import styled, { css } from 'styled-components';
 
-import { Theme } from '@/types/theme';
+export const InputField = styled.input`
+  ${({ theme }) => css`
+    width: ${theme.spacing(310)};
+    height: ${theme.spacing(30)};
 
-interface Props {
-  width?: string;
-  height?: string;
-  borderColor?: string;
-  borderRadius?: string;
-  textColor?: string;
-  theme: Theme;
-}
+    color: ${theme.colors.secondary};
 
-export const InputField = styled.input<Props>`
-  ${({ theme, width, height, borderColor, borderRadius, textColor }) => css`
-    width: ${width ?? theme.spacing(670)};
-    height: ${height ?? theme.spacing(70)};
+    border: ${theme.spacing(1)} solid ${theme.colors.lightGray};
+    border-radius: ${theme.spacing(6)};
 
-    color: ${textColor ?? theme.colors.secondary};
+    ${theme.media.md`
+      width: ${theme.spacing(540)};
+      height: ${theme.spacing(45)};
+    `}
 
-    border: ${theme.spacing(1)} solid ${borderColor ?? theme.colors.lightGray};
-    border-radius: ${borderRadius ?? theme.spacing(6)};
+    ${theme.media.lg`
+      width: ${theme.spacing(670)};
+      height: ${theme.spacing(70)};
+    `}
   `}
 `;

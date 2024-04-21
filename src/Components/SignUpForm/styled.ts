@@ -1,19 +1,36 @@
 import styled, { css } from 'styled-components';
 
-import { DefaultButton } from '../Button/styled';
+import { DefaultButton } from '@/Components/Button/styled';
 
 export const Wrapper = styled.form`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
-    width: ${theme.spacing(750)};
-    height: ${theme.spacing(870)};
+
+    width: ${theme.spacing(340)};
+    height: ${theme.spacing(560)};
+    padding: ${theme.spacing(0, 15)};
+
+    ${theme.media.md`
+      width: ${theme.spacing(540)};
+      height: ${theme.spacing(740)};
+      padding: ${theme.spacing(0, 20)};
+    `}
+
+    ${theme.media.lg`
+      width: ${theme.spacing(670)};
+      height: ${theme.spacing(870)};
+      padding: ${theme.spacing(0, 40)};
+    `}
   `}
 `;
 
 export const LogoContainer = styled.div`
   ${({ theme }) => css`
     position: relative;
+
+    align-self: center;
+
     width: ${theme.spacing(26)};
     height: ${theme.spacing(21)};
     margin-bottom: ${theme.spacing(14)};
@@ -72,9 +89,15 @@ export const InfoBlockSpan = styled.span`
 
 export const InfoText = styled.p`
   ${({ theme }) => css`
+    display: none;
+    margin: 0;
     color: ${theme.colors.secondary};
 
     ${theme.typography.variant.h5};
+
+    ${theme.media.md`
+      display: block
+    `}
   `}
 `;
 
@@ -83,7 +106,7 @@ export const DateContainer = styled.div`
     display: flex;
     flex-direction: row;
     gap: ${theme.spacing(21)};
-    margin: ${theme.spacing(32, 40)};
+    margin: ${theme.spacing(32, 0)};
   `}
 `;
 
@@ -94,6 +117,7 @@ export const SignInButton = styled(DefaultButton)`
 
     ${theme.media.lg`
       width: ${theme.spacing(670)};
-  `}
+      height: ${theme.spacing(70)};
+    `}
   `}
 `;

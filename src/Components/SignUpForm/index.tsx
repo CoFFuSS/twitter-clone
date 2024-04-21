@@ -5,7 +5,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import twitterLogo from '@/assets/images/twitter-logo-4 1.png';
 import { SignUpDateInputFields, SignUpInputFields } from '@/constants/signUpInputs';
 import { TypeSignup, signupSchema } from '@/utils/signUpFormSchema';
-import { Input } from '@/Components/Input';
 
 import {
   DateContainer,
@@ -20,6 +19,7 @@ import {
 } from './styled';
 
 import { Select } from '../Select';
+import { InputField } from '../Input/styled';
 
 export const SignUpForm = () => {
   const {
@@ -54,7 +54,7 @@ export const SignUpForm = () => {
       <InputFieldsContainer>
         {SignUpInputFields.map(({ placeholder, name, type }) => (
           <Fragment key={name}>
-            <Input
+            <InputField
               {...register(name)}
               type={type}
               placeholder={placeholder}

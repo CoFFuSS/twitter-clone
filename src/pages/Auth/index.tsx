@@ -72,15 +72,15 @@ export const AuthPage = () => (
           </AuthButton>
 
           <AuthButton>Sign up with phone or email</AuthButton>
-          <PrivacyField>
-            By singing up you agree to the <PrivacyLink>Terms of Service</PrivacyLink> and{' '}
-            <PrivacyLink>Privacy Policy</PrivacyLink>, including{' '}
-            <PrivacyLink>Cookie Use</PrivacyLink>.
-          </PrivacyField>
-          <LogInField>
-            Already have an account? <PrivacyLink>Log in</PrivacyLink>
-          </LogInField>
         </ButtonWrapper>
+        <PrivacyField>
+          By singing up you agree to the <PrivacyLink>Terms of Service</PrivacyLink> and{' '}
+          <PrivacyLink>Privacy Policy</PrivacyLink>, including <PrivacyLink>Cookie Use</PrivacyLink>
+          .
+        </PrivacyField>
+        <LogInField>
+          Already have an account? <PrivacyLink>Log in</PrivacyLink>
+        </LogInField>
       </InfoBlock>
     </Content>
     <Footer>
