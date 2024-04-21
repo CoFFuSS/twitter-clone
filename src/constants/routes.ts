@@ -7,51 +7,42 @@ import { ProfilePage } from '@/pages/Profile';
 import { SignInPage } from '@/pages/SignIn';
 import { TweetPage } from '@/pages/Tweet';
 
-export const enum Routes {
-  Home = '/',
-  Profile = '/profile',
-  Feed = '/feed',
-  Tweet = 'tweet/:id',
-  Auth = '/auth',
-  LogIn = '/log-in',
-  SignIn = '/sign-in',
-  NotFound = '*',
-}
+import { RoutesEnum } from './routesEnum';
 
 export const unAuthorizedRoutes = [
   {
-    path: Routes.Auth,
+    path: RoutesEnum.Auth,
     element: AuthPage,
   },
   {
-    path: Routes.LogIn,
+    path: RoutesEnum.LogIn,
     element: LoginPage,
   },
   {
-    path: Routes.SignIn,
+    path: RoutesEnum.SignIn,
     element: SignInPage,
   },
   {
-    path: Routes.NotFound,
+    path: RoutesEnum.NotFound,
     element: NotFoundPage,
   },
 ];
 
 export const authorizedRoutes = [
   {
-    path: Routes.Home,
+    path: RoutesEnum.Home,
     element: HomePage,
   },
   {
-    path: Routes.Profile,
+    path: RoutesEnum.Profile,
     element: ProfilePage,
   },
   {
-    path: Routes.Feed,
+    path: RoutesEnum.Feed,
     element: FeedPage,
   },
   {
-    path: Routes.Tweet,
+    path: RoutesEnum.Tweet,
     element: TweetPage,
   },
 ];

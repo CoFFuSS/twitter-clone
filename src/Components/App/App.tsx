@@ -5,8 +5,9 @@ import { onAuthStateChanged } from 'firebase/auth';
 
 import { darkTheme, lightTheme } from '@/theme';
 import { ErrorBoundary } from '@/Components/ErrorBoundary';
-import { authorizedRoutes, unAuthorizedRoutes, Routes as RoutesEnum } from '@/constants/routes';
+import { authorizedRoutes, unAuthorizedRoutes } from '@/constants/routes';
 import { auth } from '@/firebase';
+import { RoutesEnum } from '@/constants/routesEnum';
 
 import { GlobalStyle } from './styled';
 
