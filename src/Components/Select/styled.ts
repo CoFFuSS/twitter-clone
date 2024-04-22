@@ -46,3 +46,7 @@ export const SelectContainer = styled.select<Props>`
     `}
   `}
 `;
+
+export const StyledOption = styled.option`
+  display: flex;
+`;

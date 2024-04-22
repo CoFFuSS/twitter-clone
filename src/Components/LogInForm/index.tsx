@@ -4,10 +4,16 @@ import { Fragment, useEffect } from 'react';
 
 import { TypeLogIn, logInSchema } from '@/utils/logInFormSchema';
 import { LogInInputFields } from '@/constants/logInInputs';
+import { RoutesEnum } from '@/constants/routesEnum';
 
-import { FormName, InputFieldsContainer, LogInButton, Wrapper } from './styled';
-
-import { InputField } from '../Input/styled';
+import {
+  FormName,
+  InputFieldsContainer,
+  LogInButton,
+  LogInInput,
+  SignInLink,
+  Wrapper,
+} from './styled';
 
 export const LogInForm = () => {
   const {
@@ -35,7 +41,7 @@ export const LogInForm = () => {
       <InputFieldsContainer>
         {LogInInputFields.map(({ placeholder, name, type }) => (
           <Fragment key={name}>
-            <InputField
+            <LogInInput
               {...register(name)}
               type={type}
               placeholder={placeholder}
@@ -53,6 +59,7 @@ export const LogInForm = () => {
       >
         Next
       </LogInButton>
+      <SignInLink to={RoutesEnum.SignIn}>Sign up to Twitter</SignInLink>
     </Wrapper>
   );
 };
