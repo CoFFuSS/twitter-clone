@@ -8,9 +8,9 @@ export interface TypeLogInInput {
 
 export const LogInInputFields: TypeLogInInput[] = [
   {
-    placeholder: 'Email',
-    name: 'email',
-    type: 'email',
+    placeholder: 'Phone number, email address',
+    name: 'identifier',
+    type: 'text',
   },
   {
     placeholder: 'Password',

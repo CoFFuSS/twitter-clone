@@ -32,7 +32,7 @@ export const App = () => {
         setIsAuthorized(!!user);
         setIsLoading(false);
       }),
-    [],
+    [isAuthorized],
   );
 
   const handleToggleTheme = () => {

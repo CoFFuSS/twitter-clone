@@ -15,23 +15,21 @@ import {
   Wrapper,
 } from './styled';
 
-export const LogInForm = () => {
+interface LogInFormProps {
+  disabled: boolean;
+  onSubmit: SubmitHandler<TypeLogIn>;
+}
+
+export const LogInForm = ({ disabled, onSubmit }: LogInFormProps) => {
   const {
     register,
     handleSubmit,
-    reset,
     setFocus,
     formState: { isDirty, isValid, errors },
   } = useForm<TypeLogIn>({ resolver: zodResolver(logInSchema) });
 
-  const onSubmit: SubmitHandler<TypeLogIn> = (data) => {
-    // eslint-disable-next-line no-console
-    console.log(data);
-    reset();
-  };
-
   useEffect(() => {
-    setFocus('email');
+    setFocus('identifier');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -55,7 +53,7 @@ export const LogInForm = () => {
 
       <LogInButton
         type='submit'
-        disabled={!isDirty || !isValid}
+        disabled={disabled || !isDirty || !isValid}
       >
         Next
       </LogInButton>

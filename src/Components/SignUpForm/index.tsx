@@ -19,20 +19,18 @@ import {
 import { InputField } from '../Input/styled';
 import { Select } from '../Select';
 
-export const SignUpForm = () => {
+interface SignUpFormProps {
+  disabled: boolean;
+  onSubmit: SubmitHandler<TypeSignup>;
+}
+
+export const SignUpForm = ({ disabled, onSubmit }: SignUpFormProps) => {
   const {
     register,
     handleSubmit,
-    reset,
     setFocus,
     formState: { isDirty, isValid, errors },
   } = useForm<TypeSignup>({ resolver: zodResolver(signupSchema) });
-
-  const onSubmit: SubmitHandler<TypeSignup> = (data) => {
-    // eslint-disable-next-line no-console
-    console.log(data);
-    reset();
-  };
 
   useEffect(() => {
     setFocus('name');
@@ -81,7 +79,7 @@ export const SignUpForm = () => {
       </DateContainer>
       <SignInButton
         type='submit'
-        disabled={!isDirty || !isValid}
+        disabled={disabled || !isDirty || !isValid}
       >
         Next
       </SignInButton>

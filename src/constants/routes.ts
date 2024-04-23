@@ -1,7 +1,7 @@
 import { AuthPage } from '@/pages/Auth';
 import { FeedPage } from '@/pages/FeedPage';
 import { HomePage } from '@/pages/HomePage';
-import { LoginPage } from '@/pages/LogIn';
+import { LogInPage } from '@/pages/LogIn';
 import { NotFoundPage } from '@/pages/NotFound';
 import { ProfilePage } from '@/pages/Profile';
 import { SignInPage } from '@/pages/SignIn';
@@ -16,7 +16,7 @@ export const unAuthorizedRoutes = [
   },
   {
     path: RoutesEnum.LogIn,
-    element: LoginPage,
+    element: LogInPage,
   },
   {
     path: RoutesEnum.SignIn,
