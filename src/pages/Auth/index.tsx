@@ -4,6 +4,7 @@ import twitterScreen from '@/assets/images/back-twitter-1.webp';
 import twitterLogo from '@/assets/images/twitter-logo-4 1.png';
 import googleLogo from '@/assets/images/google-icon 1.svg';
 import { RoutesEnum } from '@/constants/routesEnum';
+import { signInWithGoogle } from '@/firebase';
 
 import {
   Content,
@@ -48,6 +49,10 @@ const FooterRoutes = [
 export const AuthPage = () => {
   const navigate = useNavigate();
 
+  const handleLogInWithGoogle = () => {
+    signInWithGoogle(navigate);
+  };
+
   const handleLogInWithEmail = () => {
     navigate(RoutesEnum.SignIn);
   };
@@ -72,7 +77,7 @@ export const AuthPage = () => {
           <Text>Happening now</Text>
           <SubText>Join Twitter today</SubText>
           <ButtonWrapper>
-            <AuthButton>
+            <AuthButton onClick={handleLogInWithGoogle}>
               <GoogleLogo>
                 <img
                   src={googleLogo}

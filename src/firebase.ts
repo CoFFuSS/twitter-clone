@@ -9,6 +9,9 @@ import {
 } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
+import { NavigateFunction } from 'react-router-dom';
+
+import { RoutesEnum } from './constants/routesEnum';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -36,6 +39,14 @@ export const signin = (email: string, password: string) =>
 export const logout = () => signOut(auth);
 const provider = new GoogleAuthProvider();
 
-export const signInWithGoogle = () => {
-  signInWithPopup(auth, provider);
+export const signInWithGoogle = async (navigate: NavigateFunction) => {
+  try {
+    const response = await signInWithPopup(auth, provider);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { user } = response;
+  } catch (error) {
+    console.error(error);
+  } finally {
+    navigate(RoutesEnum.Home);
+  }
 };
