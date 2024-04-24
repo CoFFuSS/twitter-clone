@@ -2,6 +2,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import { SignUpForm } from '@/Components/SignUpForm';
 import twitterLogo from '@/assets/images/twitter-logo-4 1.png';
@@ -10,6 +11,7 @@ import { TypeSignup, signupSchema } from '@/utils/signUpFormSchema';
 import { registerNewUser } from '@/utils/registerNewUser';
 import { getBirthday } from '@/utils/getBirthday';
 import { RoutesEnum } from '@/constants/routesEnum';
+import { setUser } from '@/store/slices/userSlice';
 
 interface SignUpFormProps {
   name: string;
@@ -25,6 +27,7 @@ export const SignInPage = () => {
   const [disables, setDisabled] = useState<boolean>(false);
   const { reset } = useForm<TypeSignup>({ resolver: zodResolver(signupSchema) });
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onSubmit: SubmitHandler<TypeSignup> = async ({
     name,
@@ -40,14 +43,14 @@ export const SignInPage = () => {
     try {
       setDisabled(true);
 
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { userData } = await registerNewUser(name, phone, email, password, birthday);
+      dispatch(setUser({ ...userData }));
+      navigate(RoutesEnum.Home);
     } catch (error) {
       console.error(error);
     } finally {
       setDisabled(false);
 
-      navigate(RoutesEnum.Home);
       reset();
     }
   };

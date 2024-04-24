@@ -7,4 +7,10 @@ export const enum RoutesEnum {
   LogIn = '/log-in',
   SignIn = '/sign-in',
   NotFound = '*',
+  Explore = '/explore',
+  Notifications = '/notifications',
+  Messages = '/messages',
+  Bookmarks = '/bookmarks',
+  Lists = '/lists',
+  More = '/more',
 }

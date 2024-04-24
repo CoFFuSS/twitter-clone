@@ -8,7 +8,7 @@ export const registerNewUser = async (
   phone: string,
   email: string,
   password: string,
-  birthDay: string,
+  birthday: string,
 ) => {
   const userCredentials = await register(email, password);
   const token = await userCredentials.user.getIdToken();
@@ -16,7 +16,7 @@ export const registerNewUser = async (
     name,
     phone,
     email,
-    birthDay,
+    birthday,
     id: userCredentials.user.uid,
   };
 
