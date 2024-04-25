@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 
 import { LogInForm } from '@/Components/LogInForm';
 import twitterLogo from '@/assets/images/twitter-logo-4 1.png';
-import { LogoContainer, Wrapper } from '@/mixins/formStyleMixins';
+import { LogoContainer, Wrapper } from '@/mixins/styledMixins';
 import { TypeLogIn, logInSchema } from '@/utils/logInFormSchema';
 import { isValidEmail, isValidPhone } from '@/utils/validateLogIn';
 import { RoutesEnum } from '@/constants/routesEnum';

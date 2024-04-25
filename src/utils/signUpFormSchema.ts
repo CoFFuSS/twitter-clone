@@ -1,3 +1,4 @@
+import { SubmitHandler } from 'react-hook-form';
 import { z } from 'zod';
 
 export const signupSchema = z
@@ -16,3 +17,8 @@ export const signupSchema = z
   .required();
 
 export type TypeSignup = z.infer<typeof signupSchema>;
+
+export interface SignUpFormProps {
+  disabled: boolean;
+  onSubmit: SubmitHandler<TypeSignup>;
+}

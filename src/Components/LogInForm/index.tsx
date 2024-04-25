@@ -1,8 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { Fragment, useEffect } from 'react';
 
-import { TypeLogIn, logInSchema } from '@/utils/logInFormSchema';
+import { LogInFormProps, TypeLogIn, logInSchema } from '@/utils/logInFormSchema';
 import { LogInInputFields } from '@/constants/logInInputs';
 import { RoutesEnum } from '@/constants/routesEnum';
 
@@ -14,11 +14,6 @@ import {
   SignInLink,
   Wrapper,
 } from './styled';
-
-interface LogInFormProps {
-  disabled: boolean;
-  onSubmit: SubmitHandler<TypeLogIn>;
-}
 
 export const LogInForm = ({ disabled, onSubmit }: LogInFormProps) => {
   const {

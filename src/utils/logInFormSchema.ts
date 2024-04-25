@@ -1,3 +1,4 @@
+import { SubmitHandler } from 'react-hook-form';
 import { z } from 'zod';
 
 const emailOrPhone = z
@@ -16,3 +17,8 @@ export const logInSchema = z
   .required();
 
 export type TypeLogIn = z.infer<typeof logInSchema>;
+
+export interface LogInFormProps {
+  disabled: boolean;
+  onSubmit: SubmitHandler<TypeLogIn>;
+}

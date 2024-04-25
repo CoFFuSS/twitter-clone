@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 
 import { SignUpForm } from '@/Components/SignUpForm';
 import twitterLogo from '@/assets/images/twitter-logo-4 1.png';
-import { LogoContainer, Wrapper } from '@/mixins/formStyleMixins';
+import { LogoContainer, Wrapper } from '@/mixins/styledMixins';
 import { TypeSignup, signupSchema } from '@/utils/signUpFormSchema';
 import { registerNewUser } from '@/utils/registerNewUser';
 import { getBirthday } from '@/utils/getBirthday';

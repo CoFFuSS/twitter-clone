@@ -1,9 +1,9 @@
 import { Fragment, useEffect } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { SignUpDateInputFields, SignUpInputFields } from '@/constants/signUpInputs';
-import { TypeSignup, signupSchema } from '@/utils/signUpFormSchema';
+import { SignUpFormProps, TypeSignup, signupSchema } from '@/utils/signUpFormSchema';
 
 import {
   DateContainer,
@@ -18,11 +18,6 @@ import {
 
 import { InputField } from '../Input/styled';
 import { Select } from '../Select';
-
-interface SignUpFormProps {
-  disabled: boolean;
-  onSubmit: SubmitHandler<TypeSignup>;
-}
 
 export const SignUpForm = ({ disabled, onSubmit }: SignUpFormProps) => {
   const {
