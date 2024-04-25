@@ -7,11 +7,16 @@ import {
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { getDocs, getFirestore, query, where, collection, addDoc } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 import { NavigateFunction } from 'react-router-dom';
 
+import { UserState } from '@/types/common';
+
 import { RoutesEnum } from './constants/routesEnum';
+import { Collections } from './constants/collections';
+import { AppDispatch } from './store';
+import { setUser } from './store/slices/userSlice';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -39,14 +44,27 @@ export const signin = (email: string, password: string) =>
 export const logout = () => signOut(auth);
 const provider = new GoogleAuthProvider();
 
-export const signInWithGoogle = async (navigate: NavigateFunction) => {
+export const signInWithGoogle = async (navigate: NavigateFunction, dispatch: AppDispatch) => {
   try {
     const response = await signInWithPopup(auth, provider);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { user } = response;
+    const name = user.displayName;
+    const { uid, email, phoneNumber } = user;
+    const userData = { name, id: uid, email, phone: phoneNumber, birthday: '' };
+    const userQuery = query(collection(db, Collections.Users), where('id', '==', uid));
+    const queryResponse = await getDocs(userQuery);
+
+    if (!queryResponse.empty) {
+      const token = await user.getIdToken();
+      navigate(RoutesEnum.Home);
+      dispatch(setUser({ ...(userData as UserState), token }));
+    } else {
+      await addDoc(collection(db, Collections.Users), userData);
+      const token = await user.getIdToken();
+      navigate(RoutesEnum.Home);
+      dispatch(setUser({ ...(userData as UserState), token }));
+    }
   } catch (error) {
     console.error(error);
-  } finally {
-    navigate(RoutesEnum.Home);
   }
 };

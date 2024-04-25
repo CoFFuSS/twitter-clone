@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import twitterScreen from '@/assets/images/back-twitter-1.webp';
 import twitterLogo from '@/assets/images/twitter-logo-4 1.png';
@@ -48,9 +49,10 @@ const FooterRoutes = [
 
 export const AuthPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLogInWithGoogle = () => {
-    signInWithGoogle(navigate);
+    signInWithGoogle(navigate, dispatch);
   };
 
   const handleLogInWithEmail = () => {
