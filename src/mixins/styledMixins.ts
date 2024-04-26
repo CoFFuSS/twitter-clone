@@ -38,3 +38,13 @@ export const LogoContainer = styled.div`
     height: 100%;
   }
 `;
+
+export const ErrorMassage = styled.p`
+  ${({ theme }) => css`
+    position: relative;
+    margin: 0;
+    color: ${theme.colors.secondary};
+
+    ${theme.typography.variant.h4}
+  `}
+`;

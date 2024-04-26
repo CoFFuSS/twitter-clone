@@ -1,9 +1,10 @@
-import { Fragment, useEffect } from 'react';
+import { Fragment } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { SignUpDateInputFields, SignUpInputFields } from '@/constants/signUpInputs';
 import { SignUpFormProps, TypeSignup, signupSchema } from '@/utils/signUpFormSchema';
+import { ErrorMassage } from '@/mixins/styledMixins';
 
 import {
   DateContainer,
@@ -23,14 +24,8 @@ export const SignUpForm = ({ disabled, onSubmit }: SignUpFormProps) => {
   const {
     register,
     handleSubmit,
-    setFocus,
-    formState: { isDirty, isValid, errors },
-  } = useForm<TypeSignup>({ resolver: zodResolver(signupSchema) });
-
-  useEffect(() => {
-    setFocus('name');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    formState: { errors, isDirty, isValid },
+  } = useForm<TypeSignup>({ resolver: zodResolver(signupSchema), mode: 'onChange' });
 
   return (
     <Wrapper onSubmit={handleSubmit(onSubmit)}>
@@ -46,7 +41,7 @@ export const SignUpForm = ({ disabled, onSubmit }: SignUpFormProps) => {
               maxLength={name === 'phone' ? 13 : undefined}
             />
 
-            {errors && errors[name] && <p>{errors[name]?.message}</p>}
+            {errors && errors[name] && <ErrorMassage>{errors[name]?.message}</ErrorMassage>}
           </Fragment>
         ))}
       </InputFieldsContainer>
@@ -68,7 +63,7 @@ export const SignUpForm = ({ disabled, onSubmit }: SignUpFormProps) => {
               name={name}
               width={width}
             />
-            {errors && errors[name] && <p>{errors[name]?.message}</p>}
+            {errors && errors[name] && <ErrorMassage>{errors[name]?.message}</ErrorMassage>}
           </Fragment>
         ))}
       </DateContainer>

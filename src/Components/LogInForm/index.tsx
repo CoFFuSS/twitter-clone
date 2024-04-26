@@ -1,10 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { Fragment, useEffect } from 'react';
+import { Fragment } from 'react';
 
 import { LogInFormProps, TypeLogIn, logInSchema } from '@/utils/logInFormSchema';
 import { LogInInputFields } from '@/constants/logInInputs';
 import { RoutesEnum } from '@/constants/routesEnum';
+import { ErrorMassage } from '@/mixins/styledMixins';
 
 import {
   FormName,
@@ -19,14 +20,8 @@ export const LogInForm = ({ disabled, onSubmit }: LogInFormProps) => {
   const {
     register,
     handleSubmit,
-    setFocus,
     formState: { isDirty, isValid, errors },
-  } = useForm<TypeLogIn>({ resolver: zodResolver(logInSchema) });
-
-  useEffect(() => {
-    setFocus('identifier');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  } = useForm<TypeLogIn>({ resolver: zodResolver(logInSchema), mode: 'onChange' });
 
   return (
     <Wrapper onSubmit={handleSubmit(onSubmit)}>
@@ -41,7 +36,7 @@ export const LogInForm = ({ disabled, onSubmit }: LogInFormProps) => {
               id={name}
             />
 
-            {errors && errors[name] && <p>{errors[name]?.message}</p>}
+            {errors && errors[name] && <ErrorMassage>{errors[name]?.message}</ErrorMassage>}
           </Fragment>
         ))}
       </InputFieldsContainer>

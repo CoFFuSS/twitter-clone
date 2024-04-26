@@ -88,6 +88,10 @@ export const SignInButton = styled(DefaultButton)`
     color: ${theme.colors.white};
     background-color: ${theme.colors.blue};
 
+    :disabled {
+      background-color: ${theme.colors.softGray};
+    }
+
     ${theme.media.md`
       width: ${theme.spacing(400)};
       height: ${theme.spacing(45)};
@@ -97,13 +101,5 @@ export const SignInButton = styled(DefaultButton)`
       width: ${theme.spacing(670)};
       height: ${theme.spacing(70)};
     `}
-  `}
-`;
-
-export const ErrorMassage = styled.p`
-  ${({ theme }) => css`
-    color: ${theme.colors.secondary};
-
-    ${theme.typography.variant.h3}
   `}
 `;

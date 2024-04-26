@@ -16,7 +16,7 @@ export const Wrapper = styled.form`
 
     ${theme.media.lg`
       width: ${theme.spacing(450)};
-      height: ${theme.spacing(410)};
+      height: ${theme.spacing(500)};
     `}
   `}
 `;
