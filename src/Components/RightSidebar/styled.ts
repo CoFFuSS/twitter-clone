@@ -5,6 +5,8 @@ export const SearchSidebar = styled.section`
     display: none;
     flex-direction: column;
     width: ${theme.spacing(370)};
+    margin: ${theme.spacing(20, 30)};
+
     ${theme.media.lg`
       display: flex;
     `}
@@ -19,6 +21,10 @@ export const SearchInputContainer = styled.div`
     background-color: ${theme.colors.lightGray};
     border: ${theme.spacing(1)} solid ${theme.colors.lightGray};
     border-radius: ${theme.spacing(31)};
+
+    & > svg {
+      margin: ${theme.spacing(15, 20)};
+    }
 
     ${theme.media.lg`
       width: ${theme.spacing(370)};
