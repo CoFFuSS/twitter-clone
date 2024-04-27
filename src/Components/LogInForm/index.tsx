@@ -25,7 +25,7 @@ export const LogInForm = ({ disabled, onSubmit }: LogInFormProps) => {
 
   return (
     <Wrapper onSubmit={handleSubmit(onSubmit)}>
-      <FormName>Create an account</FormName>
+      <FormName>Log in to Twitter</FormName>
       <InputFieldsContainer>
         {LogInInputFields.map(({ placeholder, name, type }) => (
           <Fragment key={name}>

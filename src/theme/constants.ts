@@ -14,7 +14,7 @@ export const THEME_COLORS = {
   mediumGray: '#B3B8BB',
   white: '#FFFFFF',
   black: '#000000',
-} as const;
+}; // There is an Error in App if it has 'as const' because i change this fields when creating themes
 
 export const THEME_FONT_FAMILIES = {
   primary: 'Roboto',

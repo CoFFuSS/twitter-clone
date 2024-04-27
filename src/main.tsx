@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
-import { App } from '@/Components/App/App';
+import { App } from '@/Components/App';
 import { persistor, store } from '@/store';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

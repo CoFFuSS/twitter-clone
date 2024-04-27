@@ -1,11 +1,11 @@
-import homeIcon from '@/assets/images/homeIcon.svg';
-import exploreIcon from '@/assets/images/exploreIcon.svg';
-import messagesIcon from '@/assets/images/messagesIcon.svg';
-import bookmarksIcon from '@/assets/images/bookmarksIcon.svg';
-import listsIcon from '@/assets/images/listsIcon.svg';
-import profileIcon from '@/assets/images/profileIcon.svg';
-import notificationIcon from '@/assets/images/notificationIcon.svg';
-import moreIcon from '@/assets/images/moreIcon.svg';
+import { ProfileIcon } from '@/Components/Icons/ProfileIcon';
+import { MessagesIcon } from '@/Components/Icons/MessagesIcon';
+import { HomeIcon } from '@/Components/Icons/HomeIcon';
+import { BookmarksIcon } from '@/Components/Icons/BookmarksIcon';
+import { ExploreIcon } from '@/Components/Icons/ExploreIcon';
+import { ListsIcon } from '@/Components/Icons/ListsIcon';
+import { MoreIcon } from '@/Components/Icons/MoreIcon';
+import { NotificationIcon } from '@/Components/Icons/NotificationIcon';
 
 import { RoutesEnum } from './routesEnum';
 
@@ -13,41 +13,41 @@ export const navBarRoutes = [
   {
     path: RoutesEnum.Home,
     element: 'Home',
-    icon: homeIcon,
+    icon: HomeIcon,
   },
   {
     path: RoutesEnum.Explore,
     element: 'Explore',
-    icon: exploreIcon,
+    icon: ExploreIcon,
   },
   {
     path: RoutesEnum.Notifications,
     element: 'Notifications',
-    icon: notificationIcon,
+    icon: NotificationIcon,
   },
   {
     path: RoutesEnum.Messages,
     element: 'Messages',
-    icon: messagesIcon,
+    icon: MessagesIcon,
   },
   {
     path: RoutesEnum.Bookmarks,
     element: 'Bookmarks',
-    icon: bookmarksIcon,
+    icon: BookmarksIcon,
   },
   {
     path: RoutesEnum.Lists,
     element: 'Lists',
-    icon: listsIcon,
+    icon: ListsIcon,
   },
   {
     path: RoutesEnum.Profile,
     element: 'Profile',
-    icon: profileIcon,
+    icon: ProfileIcon,
   },
   {
     path: RoutesEnum.More,
     element: 'More',
-    icon: moreIcon,
+    icon: MoreIcon,
   },
 ];

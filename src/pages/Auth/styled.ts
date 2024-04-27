@@ -150,28 +150,41 @@ export const AuthButton = styled(DefaultButton)`
 export const GoogleLogo = styled.div`
   ${({ theme }) => css`
     position: relative;
-    width: ${theme.spacing(14)};
-    height: ${theme.spacing(14)};
+    width: ${theme.spacing(18)};
+    height: ${theme.spacing(18)};
+
+    & > svg > g > path {
+      color: ${theme.colors.black};
+      fill: ${theme.colors.black};
+    }
+
+    svg {
+      width: ${theme.spacing(18)};
+      height: ${theme.spacing(18)};
+    }
 
     ${theme.media.lg`
+    &, svg {
       width: ${theme.spacing(35)};
       height: ${theme.spacing(35)};
+    }
+
       `}
 
     ${theme.media.xl`
       margin: ${theme.spacing(14, 0, 16, 0)};
-      width: ${theme.spacing(32)};
-      height: ${theme.spacing(32)};
+      &, svg {
+        width: ${theme.spacing(32)};
+        height: ${theme.spacing(32)};
+      }
       `}
   `}
-  img {
-    width: 100%;
-    height: 100%;
-  }
 `;
 
 export const PrivacyField = styled.p`
   ${({ theme }) => css`
+    color: ${theme.colors.secondary};
+
     ${theme.typography.variant.h7}
   `}
 `;
@@ -192,6 +205,8 @@ export const LogInLink = styled(Link)`
 
 export const LogInField = styled.p`
   ${({ theme }) => css`
+    color: ${theme.colors.secondary};
+
     ${theme.typography.variant.h6};
   `}
 `;

@@ -20,4 +20,12 @@ body{
 
 	background-color: ${({ theme }) => theme.colors.primary};
 }
+
+.blur {
+  filter: blur(4px);
+  ${({ theme }) => theme.media.sm`
+    filter: none;
+  `}
+}
+
 `;

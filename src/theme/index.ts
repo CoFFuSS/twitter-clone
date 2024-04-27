@@ -24,14 +24,18 @@ export const basicTheme = {
 
 export const lightTheme = {
   ...basicTheme,
-  ...basicTheme.colors,
-  primary: THEME_COLORS.white,
-  secondary: THEME_COLORS.black,
+  colors: {
+    ...basicTheme.colors,
+    primary: THEME_COLORS.white,
+    secondary: THEME_COLORS.black,
+  },
 } as const;
 
 export const darkTheme = {
   ...basicTheme,
-  ...basicTheme.colors,
-  primary: THEME_COLORS.black,
-  secondary: THEME_COLORS.white,
+  colors: {
+    ...basicTheme.colors,
+    primary: THEME_COLORS.black,
+    secondary: THEME_COLORS.white,
+  },
 } as const;

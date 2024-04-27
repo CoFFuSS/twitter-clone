@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 
 import twitterScreen from '@/assets/images/back-twitter-1.webp';
 import twitterLogo from '@/assets/images/twitter-logo-4 1.png';
-import googleLogo from '@/assets/images/google-icon 1.svg';
 import { RoutesEnum } from '@/constants/routesEnum';
 import { signInWithGoogle } from '@/firebase';
+import { GoogleIcon } from '@/Components/Icons/GoogleIcon';
 
 import {
   Content,
@@ -81,10 +81,7 @@ export const AuthPage = () => {
           <ButtonWrapper>
             <AuthButton onClick={handleLogInWithGoogle}>
               <GoogleLogo>
-                <img
-                  src={googleLogo}
-                  alt='google-logo'
-                />
+                <GoogleIcon />
               </GoogleLogo>
               Sign up with Google
             </AuthButton>
