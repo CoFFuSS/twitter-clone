@@ -7,6 +7,7 @@ export const InputField = styled.input`
 
     color: ${theme.colors.secondary};
 
+    background-color: ${theme.colors.primary};
     border: ${theme.spacing(1)} solid ${theme.colors.lightGray};
     border-radius: ${theme.spacing(6)};
 

@@ -235,14 +235,18 @@ export const ProfileInfoContainer = styled.div`
 export const ProfileName = styled.p`
   ${({ theme }) => css`
     margin: 0;
-    ${theme.typography.variant.h6};
     font-weight: ${theme.fontWeight.semibold};
+    color: ${theme.colors.secondary};
+
+    ${theme.typography.variant.h6};
   `}
 `;
 
 export const ProfileAddress = styled.p`
   ${({ theme }) => css`
     margin: 0;
+    color: ${theme.colors.secondary};
+
     ${theme.typography.variant.h6};
   `}
 `;

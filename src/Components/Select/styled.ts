@@ -22,10 +22,11 @@ export const SelectContainer = styled.select<Props>`
 
     appearance: none;
     background: url(${arrowDown});
+    background-color: ${theme.colors.primary};
     background-repeat: no-repeat;
     background-position: right;
     background-position-x: calc(100% - 8px);
-    border: ${theme.spacing(1)} solid ${borderColor ?? theme.colors.lightGray};
+    border: ${theme.spacing(1)} solid ${borderColor ?? theme.colors.gray};
     border-radius: ${borderRadius ?? theme.spacing(6)};
     outline: none;
 
