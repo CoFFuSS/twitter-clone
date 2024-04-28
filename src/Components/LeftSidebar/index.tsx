@@ -9,6 +9,7 @@ import profileLogoExample from '@/assets/images/ProfileLogoExample.svg';
 import { logout } from '@/firebase';
 import { clearUser } from '@/store/slices/userSlice';
 import logoutLogo from '@/assets/images/logoutIcon.svg';
+import { getUserAddress } from '@/utils/getUserAddress';
 
 import {
   LeftSidebarContainer,
@@ -94,7 +95,7 @@ export const LeftSidebar = ({ isMenuOpen, setIsMenuOpen }: LeftSidebarProps) => 
           </SidebarLogoContainer>
           <ProfileInfoContainer>
             <ProfileName>{name}</ProfileName>
-            <ProfileAddress>@{email.split('@')[0]}</ProfileAddress>
+            <ProfileAddress>{getUserAddress(email)}</ProfileAddress>
           </ProfileInfoContainer>
         </ProfileContainer>
 

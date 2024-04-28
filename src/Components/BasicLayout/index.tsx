@@ -2,11 +2,10 @@ import { Outlet } from 'react-router-dom';
 import { useState } from 'react';
 
 import { LeftSidebar } from '@/Components/LeftSidebar';
+import { RightSidebar } from '@/Components/RightSidebar';
+import { ThemeSwitcher } from '@/Components/ThemeSwitcher';
 
-import { Content, Wrapper } from './styled';
-
-import { RightSidebar } from '../RightSidebar';
-import { ThemeSwitcher } from '../ThemeSwitcher';
+import { Content, OutletWrapper, PageHeader, Wrapper } from './styled';
 
 export const BasicLayout = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,8 +18,12 @@ export const BasicLayout = () => {
       />
 
       <Content className={isMenuOpen ? 'blur' : ''}>
-        <ThemeSwitcher />
-        <Outlet />
+        <PageHeader>
+          <ThemeSwitcher />
+        </PageHeader>
+        <OutletWrapper>
+          <Outlet />
+        </OutletWrapper>
       </Content>
 
       <RightSidebar />
