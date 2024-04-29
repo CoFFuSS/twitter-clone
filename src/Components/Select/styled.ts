@@ -1,15 +1,8 @@
 import styled, { css } from 'styled-components';
 
-import { Theme } from '@/types/theme';
 import arrowDown from '@/assets/images/arrow-down.svg';
 
-interface Props {
-  width?: string;
-  height?: string;
-  borderColor?: string;
-  borderRadius?: string;
-  theme: Theme;
-}
+import { Props } from './types';
 
 export const SelectContainer = styled.select<Props>`
   ${({ theme, width, borderColor, borderRadius }) => css`

@@ -1,15 +1,9 @@
 import { forwardRef } from 'react';
 
 import { SelectContainer, StyledOption } from './styled';
+import { SelectProps } from './types';
 
-interface ISelectProps {
-  placeholder: string;
-  options: string[] | number[];
-  width?: string;
-  name: string;
-}
-
-export const Select = forwardRef<HTMLSelectElement, ISelectProps>(
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   ({ placeholder, options, width, ...props }, ref) => (
     <SelectContainer
       width={width}

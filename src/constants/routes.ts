@@ -5,6 +5,7 @@ import { LogInPage } from '@/pages/LogIn';
 import { NotFoundPage } from '@/pages/NotFound';
 import { ProfilePage } from '@/pages/Profile';
 import { SignInPage } from '@/pages/SignIn';
+import { TweetPage } from '@/pages/Tweet';
 
 import { RoutesEnum } from './routesEnum';
 
@@ -42,6 +43,6 @@ export const authorizedRoutes = [
   },
   {
     path: RoutesEnum.Tweet,
-    element: FeedPage,
+    element: TweetPage,
   },
 ];

@@ -7,9 +7,10 @@ import { selectUser } from '@/store/selectors';
 import { getUserAddress } from '@/utils/getUserAddress';
 import ProfileLogo from '@/assets/images/ProfileLogoExample.svg';
 import { TweetInputContainer } from '@/Components/TweetInputContainer';
-import { Tweet, TweetsArrayProps } from '@/Components/Tweet';
+import { Tweet } from '@/Components/Tweet';
 import { Collections } from '@/constants/collections';
 import { db } from '@/firebase';
+import { TweetsArrayProps } from '@/types/tweets';
 
 import {
   Background,

@@ -1,16 +1,17 @@
-import { Timestamp, doc, updateDoc } from 'firebase/firestore';
-import { useEffect, useState } from 'react';
+import { doc, updateDoc } from 'firebase/firestore';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getDownloadURL, ref } from 'firebase/storage';
 
 import profileLogo from '@/assets/images/ProfileLogoExample.svg';
 import { getUserAddress } from '@/utils/getUserAddress';
 import { formatDate } from '@/utils/formatDate';
 import like from '@/assets/images/like.svg';
 import likeFill from '@/assets/images/likeFill.svg';
-import { db, storage } from '@/firebase';
+import { db } from '@/firebase';
 import { Collections } from '@/constants/collections';
 import { isLikedByMe } from '@/utils/isLikedByMe';
+import { useDownloadImage } from '@/hooks/useDownloadImage';
+import { TweetsArrayProps } from '@/types/tweets';
 
 import {
   Wrapper,
@@ -25,22 +26,6 @@ import {
   LikesImage,
 } from './styled';
 
-export interface TweetProps {
-  name: string;
-  email: string;
-  createdAt: Timestamp;
-  content: string;
-  image: string;
-  likes: number;
-  likingUsers: string[];
-}
-
-export interface TweetsArrayProps {
-  tweet: TweetProps;
-  id: string;
-  myEmail: string;
-}
-
 export const Tweet = ({
   tweet: { name, email, createdAt, content, image, likes, likingUsers },
   id,
@@ -49,8 +34,8 @@ export const Tweet = ({
   const [isLiking, setIsLiking] = useState(false);
   const [currentLikes, setCurrentLikes] = useState(likes);
   const [isLiked, setIsLiked] = useState(() => isLikedByMe(likingUsers, myEmail));
-  const [imageURL, setImageURL] = useState('');
   const navigate = useNavigate();
+  const [imageURL] = useDownloadImage(image);
 
   const handleLikeChange = async () => {
     setIsLiking(true);
@@ -86,17 +71,6 @@ export const Tweet = ({
 
     setIsLiking(false);
   };
-
-  useEffect(() => {
-    const getImageUrl = async () => {
-      if (image) {
-        const url = await getDownloadURL(ref(storage, image));
-        setImageURL(url);
-      }
-    };
-
-    getImageUrl();
-  }, [image]);
 
   const navigateToTweet = (tweetId: string) => () => {
     navigate(`/tweet/${tweetId}`);

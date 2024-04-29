@@ -38,8 +38,7 @@ export const LogInPage = () => {
           dispatch(setUser({ ...(userData as UserState), token }));
           navigate(RoutesEnum.Home);
         } else {
-          // eslint-disable-next-line no-console
-          console.log('No user');
+          console.error('No user');
         }
       }
     } catch (error) {

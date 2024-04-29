@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { Dispatch, useEffect, useRef } from 'react';
+import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 
 import { useAppSelector } from '@/hooks/redux';
 import { selectUser } from '@/store/selectors';
@@ -28,7 +28,7 @@ import {
 
 export interface LeftSidebarProps {
   isMenuOpen: boolean;
-  setIsMenuOpen: Dispatch<React.SetStateAction<boolean>>;
+  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 export const LeftSidebar = ({ isMenuOpen, setIsMenuOpen }: LeftSidebarProps) => {
