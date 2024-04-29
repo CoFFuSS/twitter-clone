@@ -42,6 +42,7 @@ export const Content = styled.section`
 export const PageHeader = styled.header`
   ${({ theme }) => css`
     position: fixed;
+    z-index: 100;
 
     display: none;
     flex-direction: row;
@@ -51,6 +52,7 @@ export const PageHeader = styled.header`
     width: 100%;
     max-width: ${theme.spacing(910)};
 
+    background-color: ${theme.colors.primary};
     border-bottom: ${theme.spacing(1)} solid ${theme.colors.softGray};
 
     ${theme.media.sm`

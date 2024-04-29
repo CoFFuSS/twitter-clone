@@ -134,6 +134,7 @@ export const TweetsTitle = styled.p`
     margin: ${theme.spacing(20, 0, 50, 0)};
     padding: ${theme.spacing(5)};
 
+    color: ${theme.colors.secondary};
     text-align: center;
 
     border-bottom: ${theme.spacing(1)} solid ${theme.colors.softGray};
