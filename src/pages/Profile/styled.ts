@@ -81,7 +81,7 @@ export const AddressInfo = styled.p`
   `}
 `;
 
-export const DescriptionText = styled.p`
+export const DefaultText = styled.p`
   ${({ theme }) => css`
     color: ${theme.colors.secondary};
 
@@ -120,5 +120,24 @@ export const FollowersInfo = styled.p`
     & > span {
       font-weight: ${theme.fontWeight.regular};
     }
+  `}
+`;
+
+export const TweetsSection = styled.section`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const TweetsTitle = styled.p`
+  ${({ theme }) => css`
+    width: ${theme.spacing(120)};
+    margin: ${theme.spacing(20, 0, 50, 0)};
+    padding: ${theme.spacing(5)};
+
+    text-align: center;
+
+    border-bottom: ${theme.spacing(1)} solid ${theme.colors.softGray};
+
+    ${theme.typography.variant.h4};
   `}
 `;

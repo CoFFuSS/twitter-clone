@@ -7,7 +7,10 @@ export const TweetFieldContainer = styled.section`
     display: flex;
     flex-direction: row;
     gap: ${theme.spacing(30)};
+
     padding: ${theme.spacing(15)};
+
+    border-bottom: ${theme.spacing(1)} solid ${theme.colors.softGray};
   `}
 `;
 
@@ -15,7 +18,7 @@ export const TweetInputBlock = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
-    height: ${theme.spacing(115)};
+    height: ${theme.spacing(170)};
   `}
 `;
 
@@ -64,8 +67,12 @@ export const TweetInput = styled.textarea`
 `;
 
 export const ControlBlock = styled.div`
-  display: flex;
-  flex-direction: row;
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: ${theme.spacing(15)};
+  `}
 `;
 
 export const FilenameLabel = styled.label`
