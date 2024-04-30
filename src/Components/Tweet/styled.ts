@@ -26,16 +26,14 @@ export const Container = styled.div`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 export const TweetHeader = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    flex-direction: row;
-    gap: ${theme.spacing(5)};
-    align-items: center;
-    justify-content: flex-start;
-  `}
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const TweetName = styled.span`
@@ -43,6 +41,16 @@ export const TweetName = styled.span`
     color: ${theme.colors.secondary};
 
     ${theme.typography.variant.h3};
+  `}
+`;
+
+export const TweetInfo = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: row;
+    gap: ${theme.spacing(5)};
+    align-items: center;
+    justify-content: flex-start;
   `}
 `;
 
@@ -87,7 +95,7 @@ export const TweetRow = styled.div`
   `}
 `;
 
-export const LikesContainer = styled.p`
+export const LikesContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
     gap: ${theme.spacing(20)};
@@ -102,5 +110,59 @@ export const LikesImage = styled.img`
 export const ProfileImageContainer = styled.div`
   ${({ theme }) => css`
     margin: ${theme.spacing(5, 15, 0, 5)};
+  `}
+`;
+
+export const TweetOptions = styled.div`
+  ${({ theme }) => css`
+    cursor: pointer;
+    position: relative;
+
+    img {
+      width: ${theme.spacing(17)};
+      height: ${theme.spacing(4)};
+    }
+  `}
+`;
+
+export const PopupMenu = styled.div<{ isOpen: boolean }>`
+  ${({ theme, isOpen }) => css`
+    position: absolute;
+    z-index: 10;
+    top: ${theme.spacing(0)};
+    right: -2px;
+
+    display: ${isOpen ? 'block' : 'none'};
+
+    width: ${theme.spacing(200)};
+    padding: ${theme.spacing(2)};
+  `}
+`;
+
+export const DeleteTweet = styled.button`
+  ${({ theme }) => css`
+    cursor: pointer;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: ${theme.colors.bloodOrange};
+    border: none;
+    border-radius: ${theme.spacing(20)};
+
+    ${theme.typography.variant.h4};
+  `}
+`;
+
+export const Text = styled.p`
+  ${({ theme }) => css`
+    cursor: pointer;
+    color: ${theme.colors.secondary};
+
+    :hover {
+      color: ${theme.colors.blue};
+    }
+
+    ${theme.typography.variant.h4};
   `}
 `;

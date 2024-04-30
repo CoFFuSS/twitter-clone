@@ -12,6 +12,7 @@ export const THEME_COLORS = {
   gray: '#828282',
   lightGray: '#EFF3F4',
   mediumGray: '#B3B8BB',
+  bloodOrange: '#CC1100',
   white: '#FFFFFF',
   black: '#000000',
 }; // There is an Error in App if it has 'as const' because i change this fields when creating themes
