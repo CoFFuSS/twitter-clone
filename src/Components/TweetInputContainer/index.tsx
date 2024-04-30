@@ -6,6 +6,7 @@ import UploadImgIcon from '@/assets/images/UploadImgIcon.svg';
 import { uploadTweet } from '@/utils/uploadTweets';
 import { useAppSelector } from '@/hooks/redux';
 import { selectUser } from '@/store/selectors';
+import { limitLength } from '@/utils/limitLength';
 
 import {
   ControlBlock,
@@ -41,16 +42,18 @@ export const TweetInputContainer = () => {
   };
 
   const sendTweet = async () => {
-    try {
-      await uploadTweet(textValue, name, email, image, id, setIsLoading);
-      setTextValue('');
-    } catch (e) {
-      const error = e as Error;
-      console.error(error);
-      setTextValue('');
-      setFileName('');
-    } finally {
-      setFileName('');
+    if (textValue.length !== 0) {
+      try {
+        await uploadTweet(textValue, name, email, image, id, setIsLoading);
+        setTextValue('');
+      } catch (e) {
+        const error = e as Error;
+        console.error(error);
+        setTextValue('');
+        setFileName('');
+      } finally {
+        setFileName('');
+      }
     }
   };
 
@@ -81,10 +84,11 @@ export const TweetInputContainer = () => {
               id='upload-photo'
               onChange={handlePhotoUpload}
             />
-            {fileName && <FileName>{fileName}</FileName>}
           </FilenameLabel>
+          {fileName && <FileName>{limitLength(fileName, 10, true)}</FileName>}
+
           <SendTweetButton onClick={sendTweet}>
-            {isLoading ? <p>loading</p> : 'Tweets'}
+            {isLoading ? <p>loading</p> : <p>Tweet</p>}
           </SendTweetButton>
         </ControlBlock>
       </TweetInputBlock>

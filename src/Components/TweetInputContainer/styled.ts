@@ -70,7 +70,7 @@ export const ControlBlock = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-top: ${theme.spacing(15)};
   `}
 `;
@@ -119,5 +119,12 @@ export const InputForFile = styled.input`
 export const SendTweetButton = styled(DefaultButton)`
   ${({ theme }) => css`
     background-color: ${theme.colors.blue};
+    border: none;
+
+    p {
+      color: ${theme.colors.white};
+
+      ${theme.typography.variant.h4};
+    }
   `}
 `;

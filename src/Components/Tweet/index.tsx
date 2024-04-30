@@ -24,6 +24,7 @@ import {
   TweetRow,
   LikesContainer,
   LikesImage,
+  ProfileImageContainer,
 } from './styled';
 
 export const Tweet = ({
@@ -79,10 +80,12 @@ export const Tweet = ({
   return (
     <Wrapper>
       <Container>
-        <ProfileImage
-          src={profileLogo}
-          alt='profile logo'
-        />
+        <ProfileImageContainer>
+          <ProfileImage
+            src={profileLogo}
+            alt='profile logo'
+          />
+        </ProfileImageContainer>
         <Content>
           <TweetHeader>
             <TweetName>{name}</TweetName>

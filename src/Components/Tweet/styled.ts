@@ -8,7 +8,12 @@ export const Wrapper = styled.article`
     align-items: center;
     justify-content: center;
 
-    padding: ${theme.spacing(20, 0)};
+    height: auto;
+    padding: ${theme.spacing(5, 0)};
+
+    ${theme.media.sm`
+      padding: ${theme.spacing(20, 0)};
+      `}
   `}
 `;
 
@@ -16,7 +21,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   width: 90%;
-  height: 80%;
 `;
 
 export const Content = styled.div`
@@ -76,8 +80,9 @@ export const TweetRow = styled.div`
     color: ${theme.colors.secondary};
 
     img {
-      max-width: ${theme.spacing(300)};
-      height: auto;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   `}
 `;
@@ -92,4 +97,10 @@ export const LikesContainer = styled.p`
 
 export const LikesImage = styled.img`
   cursor: pointer;
+`;
+
+export const ProfileImageContainer = styled.div`
+  ${({ theme }) => css`
+    margin: ${theme.spacing(5, 15, 0, 5)};
+  `}
 `;
