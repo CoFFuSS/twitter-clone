@@ -63,6 +63,12 @@ export const ProfileLogoContainer = styled.div`
   `}
 `;
 
+export const NameContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const ProfileName = styled.p`
   ${({ theme }) => css`
     margin: ${theme.spacing(0)};

@@ -11,6 +11,8 @@ import { Tweet } from '@/Components/Tweet';
 import { Collections } from '@/constants/collections';
 import { db } from '@/firebase';
 import { TweetsArrayProps } from '@/types/tweets';
+import { ProfileModal } from '@/Components/ProfileModal';
+import { useToggleModal } from '@/hooks/useToggleModal';
 
 import {
   Background,
@@ -27,14 +29,17 @@ import {
   Wrapper,
   TweetsSection,
   TweetsTitle,
+  NameContainer,
 } from './styled';
 
 export const ProfilePage = () => {
   const { name, email } = useAppSelector(selectUser);
   const [tweets, setTweets] = useState<Omit<TweetsArrayProps, 'myEmail'>[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isShown, toggle] = useToggleModal();
   const filteredTweets = tweets.filter(({ tweet }) => tweet.email === email);
 
+  // useFetchProfileTweets
   useEffect(() => {
     setIsLoading(true);
     const tweetsCollection = collection(db, Collections.Posts);
@@ -69,7 +74,19 @@ export const ProfilePage = () => {
               alt='profile logo'
             />
           </ProfileLogoContainer>
-          <ProfileName>{name}</ProfileName>
+          <NameContainer>
+            <ProfileName>{name}</ProfileName>
+            <button
+              onClick={toggle}
+              type='submit'
+            >
+              Open profileModal
+            </button>
+            <ProfileModal
+              isShown={isShown}
+              hide={toggle}
+            />
+          </NameContainer>
           <AddressInfo>{getUserAddress(email)}</AddressInfo>
           <DefaultText>
             UX&UI designer at <ProfileLink>@abutechuz</ProfileLink>
