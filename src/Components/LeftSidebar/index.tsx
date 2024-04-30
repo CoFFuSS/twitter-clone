@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
 import { useAppSelector } from '@/hooks/redux';
 import { selectUser } from '@/store/selectors';
@@ -10,6 +10,7 @@ import { logout } from '@/firebase';
 import { clearUser } from '@/store/slices/userSlice';
 import logoutLogo from '@/assets/images/logoutIcon.svg';
 import { getUserAddress } from '@/utils/getUserAddress';
+import { useHandleOutsideClick } from '@/hooks/useHandleOutsideClick';
 
 import {
   LeftSidebarContainer,
@@ -33,23 +34,8 @@ export interface LeftSidebarProps {
 
 export const LeftSidebar = ({ isMenuOpen, setIsMenuOpen }: LeftSidebarProps) => {
   const { name, email } = useAppSelector(selectUser);
-  const menuRef = useRef<HTMLDivElement>(null);
-
+  const [menuRef] = useHandleOutsideClick(setIsMenuOpen);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleOutsideClick);
-
-    return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
-    };
-  }, [setIsMenuOpen]);
 
   const handleLogOut = () => {
     logout();
