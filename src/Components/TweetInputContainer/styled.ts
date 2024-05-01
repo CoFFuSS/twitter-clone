@@ -2,12 +2,18 @@ import styled, { css } from 'styled-components';
 
 import { DefaultButton } from '../Button/styled';
 
+export const Wrapper = styled.form`
+  display: flex;
+  width: 100%;
+`;
+
 export const TweetFieldContainer = styled.section`
   ${({ theme }) => css`
     display: flex;
     flex-direction: row;
     gap: ${theme.spacing(30)};
 
+    width: 100%;
     padding: ${theme.spacing(15)};
 
     border-bottom: ${theme.spacing(1)} solid ${theme.colors.softGray};
@@ -18,6 +24,7 @@ export const TweetInputBlock = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
+    width: 100%;
     height: ${theme.spacing(170)};
   `}
 `;
@@ -25,6 +32,7 @@ export const TweetInputBlock = styled.div`
 export const InputContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
+    width: 100%;
     height: ${theme.spacing(60)};
 
     ${theme.media.md`
@@ -37,26 +45,13 @@ export const TweetInput = styled.textarea`
   ${({ theme }) => css`
     resize: none;
 
-    min-width: ${theme.spacing(300)};
-    max-width: ${theme.spacing(600)};
+    width: 100%;
     height: ${theme.spacing(60)};
 
     color: ${theme.colors.secondary};
 
     background-color: ${theme.colors.primary};
     border: none;
-
-    ${theme.media.md`
-      width: ${theme.spacing(750)};
-      max-width: ${theme.spacing(750)};
-      height: ${theme.spacing(100)};
-    `}
-
-    ${theme.media.lg`
-      width: ${theme.spacing(800)};
-      max-width: ${theme.spacing(800)};
-      height: ${theme.spacing(100)};
-    `}
 
     ::placeholder {
       color: ${theme.colors.gray};
@@ -71,6 +66,8 @@ export const ControlBlock = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    width: 100%;
     margin-top: ${theme.spacing(15)};
   `}
 `;
@@ -80,20 +77,6 @@ export const FilenameLabel = styled.label`
     width: ${theme.spacing(30)};
     height: ${theme.spacing(30)};
     margin-top: ${theme.spacing(10)};
-
-    &::after {
-      content: '';
-
-      position: absolute;
-      top: 0;
-      right: 5px;
-
-      width: ${theme.spacing(10)};
-      height: ${theme.spacing(10)};
-
-      background-color: ${theme.colors.softGray};
-      border-radius: 50%;
-    }
   `}
 `;
 

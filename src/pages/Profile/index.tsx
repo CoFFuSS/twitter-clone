@@ -1,6 +1,3 @@
-import { useEffect, useState } from 'react';
-import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
-
 import ProfileBg from '@/assets/images/ProfileBg.jpg';
 import { useAppSelector } from '@/hooks/redux';
 import { selectUser } from '@/store/selectors';
@@ -8,11 +5,9 @@ import { getUserAddress } from '@/utils/getUserAddress';
 import ProfileLogo from '@/assets/images/ProfileLogoExample.svg';
 import { TweetInputContainer } from '@/Components/TweetInputContainer';
 import { Tweet } from '@/Components/Tweet';
-import { Collections } from '@/constants/collections';
-import { db } from '@/firebase';
-import { TweetsArrayProps } from '@/types/tweets';
 import { ProfileModal } from '@/Components/ProfileModal';
 import { useToggleModal } from '@/hooks/useToggleModal';
+import { useFetchTweets } from '@/hooks/useFetchTweets';
 
 import {
   Background,
@@ -36,30 +31,10 @@ import {
 
 export const ProfilePage = () => {
   const { name, email } = useAppSelector(selectUser);
-  const [tweets, setTweets] = useState<Omit<TweetsArrayProps, 'myEmail'>[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [isShown, toggle] = useToggleModal();
+  const [tweets, isLoading] = useFetchTweets();
 
   const filteredTweets = tweets.filter(({ tweet }) => tweet.email === email);
-
-  // useFetchProfileTweets
-  useEffect(() => {
-    setIsLoading(true);
-    const tweetsCollection = collection(db, Collections.Posts);
-    const tweetQueue = query(tweetsCollection, orderBy('createdAt', 'desc'));
-
-    const unsubscribe = onSnapshot(tweetQueue, (snapshot) => {
-      const tweetsList = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        tweet: doc.data(),
-      })) as unknown as Omit<TweetsArrayProps, 'myEmail'>[];
-
-      setTweets(tweetsList);
-      setIsLoading(false);
-    });
-
-    return () => unsubscribe();
-  }, []);
 
   return (
     <>

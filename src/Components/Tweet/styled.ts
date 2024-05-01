@@ -8,6 +8,7 @@ export const Wrapper = styled.article`
     align-items: center;
     justify-content: center;
 
+    width: 100%;
     height: auto;
     padding: ${theme.spacing(5, 0)};
 
@@ -51,6 +52,8 @@ export const TweetInfo = styled.div`
     gap: ${theme.spacing(5)};
     align-items: center;
     justify-content: flex-start;
+
+    width: 100%;
   `}
 `;
 
@@ -63,6 +66,8 @@ export const TweetSubInfo = styled.span`
 
 export const TweetBody = styled.div`
   ${({ theme }) => css`
+    width: 100%;
+
     p {
       color: ${theme.colors.secondary};
       ${theme.typography.variant.h4};
@@ -163,6 +168,6 @@ export const Text = styled.p`
       color: ${theme.colors.blue};
     }
 
-    ${theme.typography.variant.h4};
+    ${theme.typography.variant.p4};
   `}
 `;

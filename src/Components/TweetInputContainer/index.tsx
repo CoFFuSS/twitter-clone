@@ -19,6 +19,7 @@ import {
   TweetInput,
   TweetInputBlock,
   UploadImage,
+  Wrapper,
 } from './styled';
 
 export type FileType = Blob | Uint8Array | ArrayBuffer | null;
@@ -58,40 +59,42 @@ export const TweetInputContainer = () => {
   };
 
   return (
-    <TweetFieldContainer>
-      <LogoContainer>
-        <img
-          src={profileLogoExample}
-          alt='profile logo'
-        />
-      </LogoContainer>
-      <TweetInputBlock>
-        <InputContainer>
-          <TweetInput
-            placeholder='What’s happening'
-            onChange={handleChange}
-            value={textValue}
+    <Wrapper>
+      <TweetFieldContainer>
+        <LogoContainer>
+          <img
+            src={profileLogoExample}
+            alt='profile logo'
           />
-        </InputContainer>
-        <ControlBlock>
-          <FilenameLabel>
-            <UploadImage
-              src={UploadImgIcon}
-              alt='upload img'
+        </LogoContainer>
+        <TweetInputBlock>
+          <InputContainer>
+            <TweetInput
+              placeholder='What’s happening'
+              onChange={handleChange}
+              value={textValue}
             />
-            <InputForFile
-              type='file'
-              id='upload-photo'
-              onChange={handlePhotoUpload}
-            />
-          </FilenameLabel>
-          {fileName && <FileName>{limitLength(fileName, 10, true)}</FileName>}
+          </InputContainer>
+          <ControlBlock>
+            <FilenameLabel>
+              <UploadImage
+                src={UploadImgIcon}
+                alt='upload img'
+              />
+              <InputForFile
+                type='file'
+                id='upload-photo'
+                onChange={handlePhotoUpload}
+              />
+            </FilenameLabel>
+            {fileName && <FileName>{limitLength(fileName, 10, true)}</FileName>}
 
-          <SendTweetButton onClick={sendTweet}>
-            {isLoading ? <p>loading</p> : <p>Tweet</p>}
-          </SendTweetButton>
-        </ControlBlock>
-      </TweetInputBlock>
-    </TweetFieldContainer>
+            <SendTweetButton onClick={sendTweet}>
+              {isLoading ? <p>loading</p> : <p>Tweet</p>}
+            </SendTweetButton>
+          </ControlBlock>
+        </TweetInputBlock>
+      </TweetFieldContainer>
+    </Wrapper>
   );
 };

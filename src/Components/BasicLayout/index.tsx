@@ -5,7 +5,14 @@ import { LeftSidebar } from '@/Components/LeftSidebar';
 import { RightSidebar } from '@/Components/RightSidebar';
 import { ThemeSwitcher } from '@/Components/ThemeSwitcher';
 
-import { Content, OutletWrapper, PageHeader, Wrapper } from './styled';
+import {
+  Content,
+  HeaderContainer,
+  OutletWrapper,
+  PageHeader,
+  SwitcherContainer,
+  Wrapper,
+} from './styled';
 
 export const BasicLayout = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,9 +25,14 @@ export const BasicLayout = () => {
       />
 
       <Content className={isMenuOpen ? 'blur' : ''}>
-        <PageHeader>
-          <ThemeSwitcher />
-        </PageHeader>
+        <HeaderContainer>
+          <PageHeader>
+            <SwitcherContainer>
+              <ThemeSwitcher />
+            </SwitcherContainer>
+          </PageHeader>
+        </HeaderContainer>
+
         <OutletWrapper>
           <Outlet />
         </OutletWrapper>

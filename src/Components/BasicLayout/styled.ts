@@ -20,11 +20,13 @@ export const Content = styled.section`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
+    margin-top: ${theme.spacing(40)};
 
     ${theme.media.sm`
       min-width: ${theme.spacing(520)};
       border-left: ${theme.spacing(1)} solid ${theme.colors.softGray};
       border-right: ${theme.spacing(1)} solid ${theme.colors.softGray};
+      margin-top: 0;
     `}
 
     ${theme.media.sm`
@@ -39,18 +41,26 @@ export const Content = styled.section`
   `}
 `;
 
+export const HeaderContainer = styled.div`
+  ${({ theme }) => css`
+    height: ${theme.spacing(30)};
+
+    ${theme.media.lg`
+      height: ${theme.spacing(45)};
+    `}
+  `}
+`;
+
 export const PageHeader = styled.header`
   ${({ theme }) => css`
-    position: fixed;
-    z-index: 100;
-
-    display: none;
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 
     width: 100%;
     max-width: ${theme.spacing(910)};
+    height: ${theme.spacing(30)};
 
     background-color: ${theme.colors.primary};
     border-bottom: ${theme.spacing(1)} solid ${theme.colors.softGray};
@@ -58,6 +68,8 @@ export const PageHeader = styled.header`
     ${theme.media.sm`
       display: flex;
       height: ${theme.spacing(30)};
+      position: fixed;
+      z-index: 100;
     `}
 
     ${theme.media.lg`
@@ -70,9 +82,12 @@ export const PageHeader = styled.header`
 `;
 
 export const OutletWrapper = styled.div`
+  position: relative;
+  display: flex;
+`;
+
+export const SwitcherContainer = styled.div`
   ${({ theme }) => css`
-    position: relative;
-    top: ${theme.spacing(60)};
-    display: flex;
+    margin-left: ${theme.spacing(15)};
   `}
 `;
