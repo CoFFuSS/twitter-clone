@@ -60,7 +60,7 @@ export const TweetInfo = styled.div`
 export const TweetSubInfo = styled.span`
   ${({ theme }) => css`
     color: ${theme.colors.softGray};
-    ${theme.typography.variant.p4};
+    ${theme.typography.variant.h6};
   `}
 `;
 

@@ -89,7 +89,10 @@ export const TweetInputContainer = () => {
             </FilenameLabel>
             {fileName && <FileName>{limitLength(fileName, 10, true)}</FileName>}
 
-            <SendTweetButton onClick={sendTweet}>
+            <SendTweetButton
+              onClick={sendTweet}
+              disabled={textValue.length === 0}
+            >
               {isLoading ? <p>loading</p> : <p>Tweet</p>}
             </SendTweetButton>
           </ControlBlock>

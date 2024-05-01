@@ -109,5 +109,9 @@ export const SendTweetButton = styled(DefaultButton)`
 
       ${theme.typography.variant.h4};
     }
+
+    :disabled {
+      background-color: ${theme.colors.softGray};
+    }
   `}
 `;
