@@ -8,14 +8,16 @@ export const Wrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
 
-    width: ${theme.spacing(300)};
-
     border-radius: ${theme.spacing(8)};
     outline: 0;
 
+    ${theme.media.sm`
+      width: ${theme.spacing(500)};
+    `}
+
     ${theme.media.lg`
-      width: ${theme.spacing(600)};
-      `}
+      width: ${theme.spacing(900)};
+    `}
   `}
 `;
 
@@ -123,54 +125,45 @@ export const Content = styled.div`
     align-items: center;
     justify-content: center;
 
-    height: ${theme.spacing(150)};
     padding: ${theme.spacing(10)};
-    ${theme.media.lg`
-      height: ${theme.spacing(200)};
-      `}
   `}
 `;
 
-export const InfoContainer = styled.div`
+export const InfoContainer = styled.form`
   ${({ theme }) => css`
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-flow: row wrap;
+    flex-direction: column;
+    row-gap: ${theme.spacing(20)};
+    justify-content: space-between;
 
-    height: ${theme.spacing(30)};
-    margin-bottom: ${theme.spacing(10)};
-
-    ${theme.media.lg`
-      width: ${theme.spacing(400)};
-      align-items: center;
-      `}
+    margin-bottom: ${theme.spacing(32)};
   `}
 `;
 
-export const InputContainer = styled.div`
+export const InputWrapper = styled.div`
   ${({ theme }) => css`
-    ${theme.typography.variant.h5}
-    flex-grow: 1;
-    margin-left: ${theme.spacing(2)};
-    color: ${theme.colors.secondary};
-    border-radius: ${theme.spacing(10)};
+    display: flex;
+    flex-direction: column;
+    gap: ${theme.spacing(10)};
 
-    input {
-      width: calc(100% - ${theme.spacing(4)});
-      height: calc(100% - ${theme.spacing(4)});
-      padding: ${theme.spacing(1)};
+    p {
+      color: ${theme.colors.secondary};
 
-      font-size: ${theme.typography.variant.h5};
-      color: ${theme.colors.black};
+      ${theme.typography.variant.h4};
+    }
+  `}
+`;
 
-      background-color: ${theme.colors.softGray};
-      border: 1px solid ${theme.colors.black};
-      border-radius: ${theme.spacing(1)};
+export const SubmitButtonContainer = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-      &:focus {
-        border-color: ${theme.colors.primary};
-        outline: none;
-      }
+    button {
+      background-color: ${theme.colors.blue};
+      border: none;
     }
   `}
 `;

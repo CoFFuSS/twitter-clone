@@ -148,3 +148,27 @@ export const TweetsTitle = styled.p`
     ${theme.typography.variant.h4};
   `}
 `;
+
+export const ModalButtonContainer = styled.div`
+  ${({ theme }) => css`
+    width: ${theme.spacing(150)};
+    height: ${theme.spacing(30)};
+  `}
+`;
+
+export const ModalButton = styled.button`
+  ${({ theme }) => css`
+    cursor: pointer;
+
+    width: 100%;
+    height: 100%;
+
+    color: ${theme.colors.white};
+
+    background-color: ${theme.colors.blue};
+    border: none;
+    border-radius: ${theme.spacing(20)};
+
+    ${theme.typography.variant.h4};
+  `}
+`;
