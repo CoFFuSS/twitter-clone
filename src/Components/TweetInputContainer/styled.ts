@@ -2,12 +2,12 @@ import styled, { css } from 'styled-components';
 
 import { DefaultButton } from '../Button/styled';
 
-export const Wrapper = styled.form`
+export const Wrapper = styled.section`
   display: flex;
   width: 100%;
 `;
 
-export const TweetFieldContainer = styled.section`
+export const TweetFieldContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: row;
