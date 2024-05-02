@@ -17,6 +17,7 @@ export const Content = styled.section`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
+    max-width: ${theme.spacing(910)};
     margin-top: ${theme.spacing(40)};
 
     ${theme.media.sm`

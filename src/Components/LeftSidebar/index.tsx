@@ -12,6 +12,7 @@ import logoutLogo from '@/assets/images/logoutIcon.svg';
 import { getUserAddress } from '@/utils/getUserAddress';
 import { useHandleOutsideClick } from '@/hooks/useHandleOutsideClick';
 import { useLockScreen } from '@/hooks/useLockScroll';
+import { useToggleModal } from '@/hooks/useToggleModal';
 
 import {
   LeftSidebarContainer,
@@ -29,14 +30,18 @@ import {
   Wrapper,
 } from './styled';
 
+import { TweetModal } from '../TweetModal';
+
 export interface LeftSidebarProps {
   isMenuOpen: boolean;
   setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 export const LeftSidebar = ({ isMenuOpen, setIsMenuOpen }: LeftSidebarProps) => {
+  const [isShown, toggle] = useToggleModal();
   const { name, email } = useAppSelector(selectUser);
   const [menuRef] = useHandleOutsideClick(setIsMenuOpen);
+
   useLockScreen(isMenuOpen);
   const dispatch = useDispatch();
 
@@ -55,6 +60,10 @@ export const LeftSidebar = ({ isMenuOpen, setIsMenuOpen }: LeftSidebarProps) => 
 
   return (
     <Wrapper>
+      <TweetModal
+        isShown={isShown}
+        hide={toggle}
+      />
       <TwitterLogo onClick={toggleMenu}>
         <img
           src={twitterLogo}
@@ -79,7 +88,7 @@ export const LeftSidebar = ({ isMenuOpen, setIsMenuOpen }: LeftSidebarProps) => 
             </NavLink>
           ))}
         </NavBar>
-        <NavButton>Tweet</NavButton>
+        <NavButton onClick={toggle}>Tweet</NavButton>
         <ProfileContainer>
           <SidebarLogoContainer>
             <img

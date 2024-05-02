@@ -24,7 +24,11 @@ import {
 
 export type FileType = Blob | Uint8Array | ArrayBuffer | null;
 
-export const TweetInputContainer = () => {
+interface TweetInputProps {
+  closeModal?: () => void;
+}
+
+export const TweetInputContainer = ({ closeModal }: TweetInputProps) => {
   const { name, email, id } = useAppSelector(selectUser);
   const [textValue, setTextValue] = useState('');
   const [image, setImage] = useState<FileType>(null);
@@ -47,6 +51,10 @@ export const TweetInputContainer = () => {
       try {
         await uploadTweet(textValue, name, email, image, id, setIsLoading);
         setTextValue('');
+
+        if (closeModal) {
+          closeModal();
+        }
       } catch (error) {
         console.error(error);
         setTextValue('');
