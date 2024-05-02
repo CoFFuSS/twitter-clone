@@ -1,9 +1,15 @@
-import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { LogoContainer } from '@/mixins/styledMixins';
 
 import { DefaultButton } from '../Button/styled';
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export const LeftSidebarContainer = styled.section<{ isOpen: boolean }>`
   ${({ theme, isOpen }) => css`
@@ -12,6 +18,7 @@ export const LeftSidebarContainer = styled.section<{ isOpen: boolean }>`
 
     display: ${isOpen ? 'flex' : 'none'};
     flex-direction: column;
+    align-self: flex-start;
 
     width: ${theme.spacing(280)};
     height: ${theme.spacing(1000)};
@@ -59,7 +66,7 @@ export const TwitterLogo = styled(LogoContainer)`
     position: absolute;
     z-index: 7;
     align-self: center;
-    ${theme.media.sm`
+    ${theme.media.lg`
       cursor: default;
 
       align-self: flex-start;

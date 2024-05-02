@@ -7,7 +7,7 @@ export const SearchSidebar = styled.section`
     width: ${theme.spacing(370)};
     margin: ${theme.spacing(20, 30)};
 
-    ${theme.media.lg`
+    ${theme.media.xl`
       display: flex;
     `}
   `}

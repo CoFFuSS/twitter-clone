@@ -11,6 +11,7 @@ import { clearUser } from '@/store/slices/userSlice';
 import logoutLogo from '@/assets/images/logoutIcon.svg';
 import { getUserAddress } from '@/utils/getUserAddress';
 import { useHandleOutsideClick } from '@/hooks/useHandleOutsideClick';
+import { useLockScreen } from '@/hooks/useLockScroll';
 
 import {
   LeftSidebarContainer,
@@ -25,6 +26,7 @@ import {
   SidebarLogoContainer,
   ProfileName,
   TwitterLogo,
+  Wrapper,
 } from './styled';
 
 export interface LeftSidebarProps {
@@ -35,6 +37,7 @@ export interface LeftSidebarProps {
 export const LeftSidebar = ({ isMenuOpen, setIsMenuOpen }: LeftSidebarProps) => {
   const { name, email } = useAppSelector(selectUser);
   const [menuRef] = useHandleOutsideClick(setIsMenuOpen);
+  useLockScreen(isMenuOpen);
   const dispatch = useDispatch();
 
   const handleLogOut = () => {
@@ -42,12 +45,16 @@ export const LeftSidebar = ({ isMenuOpen, setIsMenuOpen }: LeftSidebarProps) => 
     dispatch(clearUser());
   };
 
+  const handleNavigate = () => {
+    setIsMenuOpen(false);
+  };
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <>
+    <Wrapper>
       <TwitterLogo onClick={toggleMenu}>
         <img
           src={twitterLogo}
@@ -63,6 +70,7 @@ export const LeftSidebar = ({ isMenuOpen, setIsMenuOpen }: LeftSidebarProps) => 
             <NavLink
               key={path}
               to={path}
+              onClick={handleNavigate}
             >
               <LinkContent>
                 <Icon />
@@ -92,6 +100,6 @@ export const LeftSidebar = ({ isMenuOpen, setIsMenuOpen }: LeftSidebarProps) => 
           />
         </SidebarLogoContainer>
       </LeftSidebarContainer>
-    </>
+    </Wrapper>
   );
 };

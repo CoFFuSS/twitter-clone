@@ -4,15 +4,12 @@ export const Wrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin: 0 auto;
 
     ${theme.media.sm`
       flex-direction: row;
     `}
-
-    ${theme.media.xl`
-      margin: ${theme.spacing(0, 155)};
-    `};
   `}
 `;
 
