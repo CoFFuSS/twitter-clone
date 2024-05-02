@@ -9,10 +9,11 @@ import profileLogoExample from '@/assets/images/ProfileLogoExample.svg';
 import { logout } from '@/firebase';
 import { clearUser } from '@/store/slices/userSlice';
 import logoutLogo from '@/assets/images/logoutIcon.svg';
-import { getUserAddress } from '@/utils/getUserAddress';
 import { useHandleOutsideClick } from '@/hooks/useHandleOutsideClick';
 import { useLockScreen } from '@/hooks/useLockScroll';
 import { useToggleModal } from '@/hooks/useToggleModal';
+import { TweetModal } from '@/Components/TweetModal';
+import { getUserAddress } from '@/utils/getUserAddress';
 
 import {
   LeftSidebarContainer,
@@ -21,16 +22,14 @@ import {
   NavBar,
   NavButton,
   NavLink,
-  ProfileAddress,
   ProfileContainer,
+  ProfileAddress,
   ProfileInfoContainer,
-  SidebarLogoContainer,
   ProfileName,
+  SidebarLogoContainer,
   TwitterLogo,
   Wrapper,
 } from './styled';
-
-import { TweetModal } from '../TweetModal';
 
 export interface LeftSidebarProps {
   isMenuOpen: boolean;

@@ -15,3 +15,11 @@ export interface TweetsArrayProps {
   id: string;
   myEmail: string;
 }
+
+export interface SearchedTweetProps {
+  name: string;
+  email: string;
+  createdAt: Timestamp;
+  content: string;
+  id: string;
+}

@@ -79,9 +79,9 @@ export const THEME_TYPOGRAPHY_VARIANTS: TypographyVariants = {
   `,
   h3: css`
     font-family: ${THEME_FONT_FAMILIES.primary};
-    font-size: ${pxToRem(12)};
+    font-size: ${pxToRem(18)};
     font-weight: ${THEME_FONT_WEIGHT.bold};
-    line-height: ${16 / 12};
+    line-height: ${21 / 18};
     ${media.lg`
       font-family: ${THEME_FONT_FAMILIES.primary};
       font-size: ${pxToRem(24)};

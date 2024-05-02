@@ -57,7 +57,7 @@ export const PageHeader = styled.header`
     justify-content: space-between;
 
     width: 100%;
-    max-width: ${theme.spacing(910)};
+    max-width: ${theme.spacing(909)};
     height: ${theme.spacing(30)};
 
     background-color: ${theme.colors.primary};

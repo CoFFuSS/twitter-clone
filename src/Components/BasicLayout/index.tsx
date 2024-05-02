@@ -1,9 +1,10 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
 import { LeftSidebar } from '@/Components/LeftSidebar';
 import { RightSidebar } from '@/Components/RightSidebar';
 import { ThemeSwitcher } from '@/Components/ThemeSwitcher';
+import { collectionsWithPaths, searchFieldsInCollection } from '@/constants/collections';
 
 import {
   Content,
@@ -15,7 +16,14 @@ import {
 } from './styled';
 
 export const BasicLayout = () => {
+  const location = useLocation();
+  const path = location.pathname;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const searchConfig = {
+    collectionName: collectionsWithPaths[path] || collectionsWithPaths['/'],
+    searchField: searchFieldsInCollection[path] || searchFieldsInCollection['/'],
+  };
 
   return (
     <Wrapper>
@@ -38,7 +46,7 @@ export const BasicLayout = () => {
         </OutletWrapper>
       </Content>
 
-      <RightSidebar />
+      <RightSidebar searchConfig={searchConfig} />
     </Wrapper>
   );
 };
