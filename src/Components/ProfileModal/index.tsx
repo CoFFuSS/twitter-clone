@@ -16,6 +16,8 @@ import { Collections } from '@/constants/collections';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { selectUser } from '@/store/selectors';
 import { updateUser } from '@/store/slices/userSlice';
+import { InputField } from '@/Components/Input/styled';
+import { DefaultButton } from '@/Components/Button/styled';
 
 import {
   Backdrop,
@@ -29,9 +31,6 @@ import {
   InputWrapper,
   SubmitButtonContainer,
 } from './styled';
-
-import { InputField } from '../Input/styled';
-import { DefaultButton } from '../Button/styled';
 
 interface ProfileModalProps {
   isShown: boolean;

@@ -35,22 +35,22 @@ export const uploadTweet = async (
   setIsLoading: Dispatch<SetStateAction<boolean>>,
 ) => {
   setIsLoading(true);
-  const fileName = await uploadImage(image, id);
-  const tweet = {
-    content,
-    name,
-    email,
-    image: fileName,
-    likes: 0,
-    createdAt: new Date(),
-    likingUsers: [],
-  };
 
   try {
+    const fileName = await uploadImage(image, id);
+    const tweet = {
+      content,
+      name,
+      email,
+      image: fileName,
+      likes: 0,
+      createdAt: new Date(),
+      likingUsers: [],
+    };
+
     await addDoc(collection(db, Collections.Posts), tweet);
-  } catch (e) {
-    const error = e as Error;
-    console.error(error.message);
+  } catch (error) {
+    console.error(error);
   } finally {
     setIsLoading(false);
   }

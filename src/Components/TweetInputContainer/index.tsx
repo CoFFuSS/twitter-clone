@@ -47,8 +47,7 @@ export const TweetInputContainer = () => {
       try {
         await uploadTweet(textValue, name, email, image, id, setIsLoading);
         setTextValue('');
-      } catch (e) {
-        const error = e as Error;
+      } catch (error) {
         console.error(error);
         setTextValue('');
         setFileName('');
