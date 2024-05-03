@@ -2,8 +2,7 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { DefaultButton } from '@/Components/Button/styled';
-
-import { InputField } from '../Input/styled';
+import { InputField } from '@/Components/Input/styled';
 
 export const Wrapper = styled.form`
   ${({ theme }) => css`

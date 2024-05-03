@@ -5,6 +5,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { SignUpDateInputFields, SignUpInputFields } from '@/constants/signUpInputs';
 import { SignUpFormProps, TypeSignup, signupSchema } from '@/utils/signUpFormSchema';
 import { ErrorMassage } from '@/mixins/styledMixins';
+import { Select } from '@/Components/Select';
+import { InputField } from '@/Components/Input/styled';
 
 import {
   DateContainer,
@@ -16,9 +18,6 @@ import {
   SignInButton,
   Wrapper,
 } from './styled';
-
-import { InputField } from '../Input/styled';
-import { Select } from '../Select';
 
 export const SignUpForm = ({ disabled, onSubmit }: SignUpFormProps) => {
   const {
