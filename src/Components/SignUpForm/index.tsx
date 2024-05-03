@@ -34,6 +34,7 @@ export const SignUpForm = ({ disabled, onSubmit }: SignUpFormProps) => {
           <Fragment key={name}>
             <InputField
               {...register(name)}
+              data-cy={name}
               type={type}
               placeholder={placeholder}
               id={name}
@@ -57,6 +58,7 @@ export const SignUpForm = ({ disabled, onSubmit }: SignUpFormProps) => {
           <Fragment key={placeholder}>
             <Select
               {...register(name)}
+              data-cy={name}
               placeholder={placeholder}
               options={options}
               name={name}
@@ -67,6 +69,7 @@ export const SignUpForm = ({ disabled, onSubmit }: SignUpFormProps) => {
         ))}
       </DateContainer>
       <SignInButton
+        data-cy='signup-button'
         type='submit'
         disabled={disabled || !isDirty || !isValid}
       >
