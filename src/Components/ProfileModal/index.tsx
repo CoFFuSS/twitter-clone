@@ -155,5 +155,5 @@ export const ProfileModal = ({ isShown, hide }: ProfileModalProps) => {
     </>
   );
 
-  return isShown ? createPortal(modal, document.body) : null;
+  return isShown && createPortal(modal, document.body);
 };

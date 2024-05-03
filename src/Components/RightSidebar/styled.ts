@@ -57,7 +57,7 @@ export const SearchResult = styled.div`
 
     text-align: center;
 
-    background-color: ${theme.colors.lightGray};
+    background-color: ${theme.colors.searchBarColor};
     border-radius: ${theme.spacing(10)};
   `}
 `;

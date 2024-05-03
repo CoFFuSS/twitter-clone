@@ -77,6 +77,7 @@ export const TweetInputContainer = memo(({ closeModal }: TweetInputProps) => {
         <TweetInputBlock>
           <InputContainer>
             <TweetInput
+              data-cy='tweet-input'
               placeholder='What’s happening'
               onChange={handleChange}
               value={textValue}
@@ -97,6 +98,7 @@ export const TweetInputContainer = memo(({ closeModal }: TweetInputProps) => {
             {fileName && <FileName>{limitLength(fileName, 10, true)}</FileName>}
 
             <SendTweetButton
+              data-cy='send-tweet-button'
               onClick={sendTweet}
               disabled={textValue.length === 0}
             >

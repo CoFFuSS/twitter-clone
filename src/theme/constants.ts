@@ -6,6 +6,7 @@ import { media } from './breakpoints';
 export const THEME_COLORS = {
   primary: '#FFFFFF',
   secondary: '#000000',
+  searchBarColor: '#EFF3F4',
   blue: '#1DA1F2',
   mediumDark: '#333333',
   softGray: '#C4C4C4',
