@@ -53,11 +53,11 @@ export const TweetInput = styled.textarea`
     background-color: ${theme.colors.primary};
     border: none;
 
+    ${theme.typography.variant.h3};
+
     ::placeholder {
       color: ${theme.colors.gray};
     }
-
-    ${theme.typography.variant.h3};
   `}
 `;
 

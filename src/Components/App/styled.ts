@@ -13,7 +13,7 @@ body{
 :root {
 	align-content: center;
 
-	max-width: 1920px;
+	max-width: ${({ theme }) => theme.spacing(1920)};
 	margin: 0 auto;
 
 	font-family: Roboto, sans-serif;

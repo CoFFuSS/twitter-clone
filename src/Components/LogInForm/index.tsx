@@ -31,6 +31,7 @@ export const LogInForm = ({ disabled, onSubmit }: LogInFormProps) => {
           <Fragment key={name}>
             <LogInInput
               {...register(name)}
+              data-cy={name}
               type={type}
               placeholder={placeholder}
               id={name}
@@ -42,6 +43,7 @@ export const LogInForm = ({ disabled, onSubmit }: LogInFormProps) => {
       </InputFieldsContainer>
 
       <LogInButton
+        data-cy='login-button'
         type='submit'
         disabled={disabled || !isDirty || !isValid}
       >

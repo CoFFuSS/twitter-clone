@@ -101,7 +101,10 @@ export const LeftSidebar = ({ isMenuOpen, setIsMenuOpen }: LeftSidebarProps) => 
           </ProfileInfoContainer>
         </ProfileContainer>
 
-        <SidebarLogoContainer onClick={handleLogOut}>
+        <SidebarLogoContainer
+          onClick={handleLogOut}
+          data-cy='logout-button'
+        >
           <img
             src={logoutLogo}
             alt='Profile Logo'

@@ -1,4 +1,5 @@
 import { createPortal } from 'react-dom';
+import { memo } from 'react';
 
 import { TweetInputContainer } from '@/Components/TweetInputContainer';
 
@@ -17,7 +18,7 @@ interface TweetModalProps {
   hide: () => void;
 }
 
-export const TweetModal = ({ isShown, hide }: TweetModalProps) => {
+export const TweetModal = memo(({ isShown, hide }: TweetModalProps) => {
   const handleClose = () => {
     hide();
   };
@@ -49,4 +50,4 @@ export const TweetModal = ({ isShown, hide }: TweetModalProps) => {
   );
 
   return isShown ? createPortal(modal, document.body) : null;
-};
+});

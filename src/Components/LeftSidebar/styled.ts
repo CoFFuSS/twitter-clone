@@ -45,20 +45,6 @@ export const LeftSidebarContainer = styled.section<{ isOpen: boolean }>`
   `}
 `;
 
-export const MenuButton = styled.button`
-  ${({ theme }) => css`
-    z-index: 8;
-
-    align-items: center;
-    justify-content: center;
-
-    width: ${theme.spacing(28)};
-    height: ${theme.spacing(28)};
-
-    background-color: ${theme.colors.black};
-  `}
-`;
-
 export const TwitterLogo = styled(LogoContainer)`
   ${({ theme }) => css`
     cursor: pointer;
@@ -129,8 +115,6 @@ export const LinkContent = styled.div`
         width: ${theme.spacing(28)};
         height: ${theme.spacing(28)};
         margin-right: ${theme.spacing(20)};
-
-
       `}
     }
   `}
@@ -148,11 +132,6 @@ export const LinkText = styled.p`
       display: flex;
     `}
   `}
-`;
-
-export const NavBarContent = styled.div`
-  display: flex;
-  flex-direction: column;
 `;
 
 export const NavButton = styled(DefaultButton)`
@@ -254,17 +233,5 @@ export const ProfileAddress = styled.p`
     color: ${theme.colors.secondary};
 
     ${theme.typography.variant.h6};
-  `}
-`;
-
-export const LogOutButton = styled(NavButton)`
-  ${({ theme }) => css`
-    width: ${theme.spacing(28)};
-    height: ${theme.spacing(28)};
-
-    ${theme.media.lg`
-      margin-top: ${theme.spacing(16)};
-      background-color: ${theme.colors.mediumGray};
-  `}
   `}
 `;

@@ -14,6 +14,7 @@ export const Content = styled.div`
     display: flex;
     flex-direction: row;
     padding: ${theme.spacing(20)};
+
     ${theme.media.lg`
       padding: 0;
     `}
@@ -30,6 +31,7 @@ export const BackTwitterContainer = styled.div`
       width: ${theme.spacing(960)};
       height: ${theme.spacing(860)};
     `}
+
     ${theme.media.xl`
       display: block;
       width: ${theme.spacing(1100)};
@@ -59,12 +61,14 @@ export const InfoBlock = styled.div`
     display: flex;
     flex-direction: column;
     height: fit-content;
+
     ${theme.media.lg`
       margin: ${theme.spacing(80, 30, 60, 30)};
-      `}
+    `}
+
     ${theme.media.xl`
       margin: ${theme.spacing(140, 50, 60, 50)};
-     `};
+    `};
   `}
 `;
 
@@ -80,14 +84,14 @@ export const TwitterLogoContainer = styled.div`
       width: ${theme.spacing(35)};
       height: ${theme.spacing(35)};
       margin-bottom: ${theme.spacing(35)};
-      `}
+    `}
 
     ${theme.media.xl`
       align-self: start;
       width: ${theme.spacing(50)};
       height: ${theme.spacing(50)};
       margin-bottom: ${theme.spacing(57)};
-      `}
+    `}
   `}
 `;
 
@@ -177,7 +181,7 @@ export const GoogleLogo = styled.div`
         width: ${theme.spacing(32)};
         height: ${theme.spacing(32)};
       }
-      `}
+    `}
   `}
 `;
 
@@ -235,7 +239,8 @@ export const FooterSpan = styled.span`
     user-select: none;
     display: none;
 
-    ${theme.typography.variant.h7}
+    ${theme.typography.variant.h7};
+
     ${theme.media.xl`
       display: block
     `}

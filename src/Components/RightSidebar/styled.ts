@@ -57,7 +57,7 @@ export const SearchResult = styled.div`
 
     text-align: center;
 
-    background-color: ${theme.colors.lightGray};
+    background-color: ${theme.colors.searchBarColor};
     border-radius: ${theme.spacing(10)};
   `}
 `;
@@ -67,14 +67,5 @@ export const Text = styled.p`
     color: ${theme.colors.black};
 
     ${theme.typography.variant.h3};
-  `}
-`;
-
-export const UsersList = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    flex-direction: column;
-    gap: ${theme.spacing(25)};
-    width: 100%;
   `}
 `;

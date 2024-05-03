@@ -37,5 +37,6 @@ export const darkTheme = {
     ...basicTheme.colors,
     primary: THEME_COLORS.black,
     secondary: THEME_COLORS.white,
+    searchBarColor: THEME_COLORS.softGray,
   },
 } as const;

@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, memo, useState } from 'react';
 
 import profileLogoExample from '@/assets/images/ProfileLogoExample.svg';
 import { LogoContainer } from '@/mixins/styledMixins';
@@ -28,7 +28,7 @@ interface TweetInputProps {
   closeModal?: () => void;
 }
 
-export const TweetInputContainer = ({ closeModal }: TweetInputProps) => {
+export const TweetInputContainer = memo(({ closeModal }: TweetInputProps) => {
   const { name, email, id } = useAppSelector(selectUser);
   const [textValue, setTextValue] = useState('');
   const [image, setImage] = useState<FileType>(null);
@@ -77,6 +77,7 @@ export const TweetInputContainer = ({ closeModal }: TweetInputProps) => {
         <TweetInputBlock>
           <InputContainer>
             <TweetInput
+              data-cy='tweet-input'
               placeholder='What’s happening'
               onChange={handleChange}
               value={textValue}
@@ -97,6 +98,7 @@ export const TweetInputContainer = ({ closeModal }: TweetInputProps) => {
             {fileName && <FileName>{limitLength(fileName, 10, true)}</FileName>}
 
             <SendTweetButton
+              data-cy='send-tweet-button'
               onClick={sendTweet}
               disabled={textValue.length === 0}
             >
@@ -107,4 +109,4 @@ export const TweetInputContainer = ({ closeModal }: TweetInputProps) => {
       </TweetFieldContainer>
     </Wrapper>
   );
-};
+});

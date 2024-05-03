@@ -43,7 +43,7 @@ export const RightSidebar = memo(
             onChange={handleInputChange}
           />
         </SearchInputContainer>
-        <SearchResult>
+        <SearchResult data-cy='searchbar'>
           <Text>{debouncedInputValue ? 'Search results' : 'You might like'}</Text>
           {items?.map((item) => {
             const path = location.pathname as keyof ComponentByPath;
