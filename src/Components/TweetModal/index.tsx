@@ -1,5 +1,7 @@
 import { createPortal } from 'react-dom';
 
+import { TweetInputContainer } from '@/Components/TweetInputContainer';
+
 import {
   Backdrop,
   Wrapper,
@@ -9,8 +11,6 @@ import {
   InfoContainer,
   ModalWindow,
 } from './styled';
-
-import { TweetInputContainer } from '../TweetInputContainer';
 
 interface TweetModalProps {
   isShown: boolean;

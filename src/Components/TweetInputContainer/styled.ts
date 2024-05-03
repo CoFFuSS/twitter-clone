@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { DefaultButton } from '../Button/styled';
+import { DefaultButton } from '@/Components/Button/styled';
 
 export const Wrapper = styled.section`
   display: flex;

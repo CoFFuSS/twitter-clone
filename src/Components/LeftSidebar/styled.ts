@@ -2,8 +2,7 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { LogoContainer } from '@/mixins/styledMixins';
-
-import { DefaultButton } from '../Button/styled';
+import { DefaultButton } from '@/Components/Button/styled';
 
 export const Wrapper = styled.div`
   display: flex;

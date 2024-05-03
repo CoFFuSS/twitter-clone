@@ -10,10 +10,9 @@ import { auth } from '@/firebase';
 import { RoutesEnum } from '@/constants/routesEnum';
 import { useAppSelector } from '@/hooks/redux';
 import { selectTheme } from '@/store/selectors';
+import { BasicLayout } from '@/Components/BasicLayout';
 
 import { GlobalStyle } from './styled';
-
-import { BasicLayout } from '../BasicLayout';
 
 export const App = () => {
   const [isAuthorized, setIsAuthorized] = useState<boolean>(false);
