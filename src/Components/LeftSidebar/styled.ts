@@ -2,8 +2,7 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { LogoContainer } from '@/mixins/styledMixins';
-
-import { DefaultButton } from '../Button/styled';
+import { DefaultButton } from '@/Components/Button/styled';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -43,20 +42,6 @@ export const LeftSidebarContainer = styled.section<{ isOpen: boolean }>`
       margin-right: ${theme.spacing(50)};
       padding-top: ${theme.spacing(60)};
     `}
-  `}
-`;
-
-export const MenuButton = styled.button`
-  ${({ theme }) => css`
-    z-index: 8;
-
-    align-items: center;
-    justify-content: center;
-
-    width: ${theme.spacing(28)};
-    height: ${theme.spacing(28)};
-
-    background-color: ${theme.colors.black};
   `}
 `;
 
@@ -130,8 +115,6 @@ export const LinkContent = styled.div`
         width: ${theme.spacing(28)};
         height: ${theme.spacing(28)};
         margin-right: ${theme.spacing(20)};
-
-
       `}
     }
   `}
@@ -149,11 +132,6 @@ export const LinkText = styled.p`
       display: flex;
     `}
   `}
-`;
-
-export const NavBarContent = styled.div`
-  display: flex;
-  flex-direction: column;
 `;
 
 export const NavButton = styled(DefaultButton)`
@@ -255,17 +233,5 @@ export const ProfileAddress = styled.p`
     color: ${theme.colors.secondary};
 
     ${theme.typography.variant.h6};
-  `}
-`;
-
-export const LogOutButton = styled(NavButton)`
-  ${({ theme }) => css`
-    width: ${theme.spacing(28)};
-    height: ${theme.spacing(28)};
-
-    ${theme.media.lg`
-      margin-top: ${theme.spacing(16)};
-      background-color: ${theme.colors.mediumGray};
-  `}
   `}
 `;

@@ -18,6 +18,7 @@ import { selectUser } from '@/store/selectors';
 import { updateUser } from '@/store/slices/userSlice';
 import { InputField } from '@/Components/Input/styled';
 import { DefaultButton } from '@/Components/Button/styled';
+import { tweetFieldsToUpdate, userFieldsToUpdate } from '@/constants/profileModalFieldsToUpdate';
 
 import {
   Backdrop,
@@ -36,16 +37,6 @@ interface ProfileModalProps {
   isShown: boolean;
   hide: () => void;
 }
-
-const userFieldsToUpdate: (keyof TypeProfile)[] = [
-  'name',
-  'email',
-  'phone',
-  'birthday',
-  'password',
-];
-
-const tweetFieldsToUpdate: (keyof TypeProfile)[] = ['email', 'name'];
 
 export const ProfileModal = ({ isShown, hide }: ProfileModalProps) => {
   const { id, email } = useAppSelector(selectUser);

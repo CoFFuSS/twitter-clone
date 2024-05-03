@@ -6,6 +6,7 @@ import twitterLogo from '@/assets/images/twitter-logo-4 1.png';
 import { RoutesEnum } from '@/constants/routesEnum';
 import { signInWithGoogle } from '@/firebase';
 import { GoogleIcon } from '@/Components/Icons/GoogleIcon';
+import { FooterRoutes } from '@/constants/footerRoutes';
 
 import {
   Content,
@@ -27,25 +28,6 @@ import {
   AuthButton,
   LogInLink,
 } from './styled';
-
-const FooterRoutes = [
-  'About',
-  'Help Center',
-  'Terms of Service',
-  'Privacy Policy',
-  'Cookie Policy',
-  'Ads info',
-  'Blog',
-  'Status',
-  'Carrres',
-  'Brand Resources',
-  'Advertsing',
-  'Marketing',
-  'Twitter for Business',
-  'Developers',
-  'Directory',
-  'Settings',
-];
 
 export const AuthPage = () => {
   const navigate = useNavigate();

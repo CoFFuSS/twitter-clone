@@ -22,5 +22,5 @@ export const registerNewUser = async (
 
   await addDoc(collection(db, Collections.Users), newUserData);
 
-  return { userData: { ...newUserData, token } };
+  return { userData: { ...newUserData, token } } as const;
 };

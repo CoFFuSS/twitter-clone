@@ -14,7 +14,7 @@ export const Wrapper = styled.article`
 
     ${theme.media.sm`
       padding: ${theme.spacing(20, 0)};
-      `}
+    `}
   `}
 `;
 
@@ -60,6 +60,7 @@ export const TweetInfo = styled.div`
 export const TweetSubInfo = styled.span`
   ${({ theme }) => css`
     color: ${theme.colors.softGray};
+
     ${theme.typography.variant.h6};
   `}
 `;
@@ -164,10 +165,10 @@ export const Text = styled.p`
     cursor: pointer;
     color: ${theme.colors.secondary};
 
+    ${theme.typography.variant.p4};
+
     :hover {
       color: ${theme.colors.blue};
     }
-
-    ${theme.typography.variant.p4};
   `}
 `;

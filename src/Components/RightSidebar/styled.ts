@@ -69,12 +69,3 @@ export const Text = styled.p`
     ${theme.typography.variant.h3};
   `}
 `;
-
-export const UsersList = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    flex-direction: column;
-    gap: ${theme.spacing(25)};
-    width: 100%;
-  `}
-`;

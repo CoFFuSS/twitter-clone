@@ -38,10 +38,10 @@ export const Content = styled.p`
     color: ${theme.colors.black};
     text-align: start;
 
+    ${theme.typography.variant.p4};
+
     :hover {
       color: ${theme.colors.blue};
     }
-
-    ${theme.typography.variant.p4}
   `}
 `;
