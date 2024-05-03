@@ -15,7 +15,10 @@ export const ThemeSwitcher = () => {
   };
 
   return (
-    <Switcher checked={currentTheme !== 'light'}>
+    <Switcher
+      data-cy='theme-switch-input'
+      checked={currentTheme !== 'light'}
+    >
       <input
         name='themeSwitcher'
         onChange={handleThemeSwitch}
