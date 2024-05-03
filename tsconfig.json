@@ -37,5 +37,5 @@
 
   "exclude": ["node_modules", "dist", "build", ".vscode", "cypress", "**/*.cy.tsx"],
 
-  "include": ["cypress.config.ts", "jest.config.ts", "typings/*.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["jest.config.ts", "typings/*.d.ts", "**/*.ts", "**/*.tsx"]
 }
