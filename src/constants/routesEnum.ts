@@ -1,0 +1,16 @@
+export const enum RoutesEnum {
+  Home = '/',
+  Profile = '/profile',
+  Feed = '/feed',
+  Tweet = 'tweet/:id',
+  Auth = '/auth',
+  LogIn = '/log-in',
+  SignIn = '/sign-in',
+  NotFound = '*',
+  Explore = '/explore',
+  Notifications = '/notifications',
+  Messages = '/messages',
+  Bookmarks = '/bookmarks',
+  Lists = '/lists',
+  More = '/more',
+}
