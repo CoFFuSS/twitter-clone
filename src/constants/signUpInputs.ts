@@ -37,7 +37,7 @@ export const SignUpInputFields: TypeSignupInput[] = [
     type: 'password',
     name: 'password',
   },
-];
+] as const;
 
 export const SignUpDateInputFields: TypeSignUpDateInputFields[] = [
   {
@@ -58,4 +58,4 @@ export const SignUpDateInputFields: TypeSignUpDateInputFields[] = [
     name: 'year',
     width: '160px',
   },
-];
+] as const;

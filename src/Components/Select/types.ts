@@ -10,7 +10,7 @@ export interface Props {
 
 export interface SelectProps {
   placeholder: string;
-  options: string[] | number[];
+  options: readonly string[] | number[];
   width?: string;
   name: string;
 }

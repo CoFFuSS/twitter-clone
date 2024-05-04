@@ -17,4 +17,4 @@ export const LogInInputFields: TypeLogInInput[] = [
     name: 'password',
     type: 'password',
   },
-];
+] as const;

@@ -17,5 +17,5 @@ export const useDownloadImage = (image: string) => {
     getImageUrl();
   }, [image, setImageURL]);
 
-  return [imageURL] as const;
+  return imageURL;
 };

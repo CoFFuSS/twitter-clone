@@ -46,7 +46,7 @@ export const TweetInputContainer = memo(({ closeModal }: TweetInputProps) => {
     }
   };
 
-  const sendTweet = async () => {
+  const handleSendTweet = async () => {
     if (textValue.length !== 0) {
       try {
         await uploadTweet(textValue, name, email, image, id, setIsLoading);
@@ -101,7 +101,7 @@ export const TweetInputContainer = memo(({ closeModal }: TweetInputProps) => {
 
             <SendTweetButton
               data-cy='send-tweet-button'
-              onClick={sendTweet}
+              onClick={handleSendTweet}
               disabled={textValue.length === 0}
             >
               {isLoading ? <p>loading</p> : <p>Tweet</p>}

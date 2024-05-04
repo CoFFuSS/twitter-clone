@@ -53,7 +53,7 @@ export const LeftSidebar = ({ isMenuOpen, setIsMenuOpen }: LeftSidebarProps) => 
     setIsMenuOpen(false);
   };
 
-  const toggleMenu = () => {
+  const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     toggleLockScreen();
   };
@@ -64,7 +64,7 @@ export const LeftSidebar = ({ isMenuOpen, setIsMenuOpen }: LeftSidebarProps) => 
         isShown={isShown}
         hide={toggle}
       />
-      <TwitterLogo onClick={toggleMenu}>
+      <TwitterLogo onClick={handleToggleMenu}>
         <img
           src={twitterLogo}
           alt='twitter-logo'

@@ -32,12 +32,4 @@ export const profileInputs: TypeProfileInput[] = [
     type: 'text',
     name: 'phone',
   },
-];
-
-export const defaultValues = {
-  name: '',
-  email: '',
-  birthday: '',
-  phone: '',
-  password: '',
-};
+] as const;

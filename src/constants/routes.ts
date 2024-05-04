@@ -26,7 +26,7 @@ export const unAuthorizedRoutes = [
     path: RoutesEnum.NotFound,
     element: NotFoundPage,
   },
-];
+] as const;
 
 export const authorizedRoutes = [
   {
@@ -45,4 +45,4 @@ export const authorizedRoutes = [
     path: RoutesEnum.Tweet,
     element: TweetPage,
   },
-];
+] as const;

@@ -43,12 +43,12 @@ export const Tweet = ({
   const [currentLikes, setCurrentLikes] = useState(likes);
   const [isLiked, setIsLiked] = useState(() => isLikedByMe(likingUsers, myEmail));
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [imageURL] = useDownloadImage(image);
+  const imageURL = useDownloadImage(image);
   const menuRef = useHandleOutsideClick(setIsMenuOpen);
   const navigate = useNavigate();
   const params = useParams();
 
-  const toggleMenu = () => {
+  const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
@@ -123,7 +123,7 @@ export const Tweet = ({
               <TweetSubInfo>{createdAt && formatDate(createdAt)}</TweetSubInfo>
             </TweetInfo>
 
-            <TweetOptions onClick={toggleMenu}>
+            <TweetOptions onClick={handleToggleMenu}>
               <img
                 src={threeDots}
                 alt='more'

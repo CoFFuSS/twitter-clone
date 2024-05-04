@@ -15,4 +15,4 @@ export const FooterRoutes = [
   'Developers',
   'Directory',
   'Settings',
-];
+] as const;
