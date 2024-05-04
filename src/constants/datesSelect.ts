@@ -1,4 +1,4 @@
-const STARTING_YEAR = 1990;
+export const STARTING_YEAR = 1990;
 
 export const months = [
   'January',
@@ -13,8 +13,4 @@ export const months = [
   'October',
   'November',
   'December',
-];
-
-export const years = Array.from({ length: 33 }, (_, k) => STARTING_YEAR + k + 1);
-
-export const days = Array.from({ length: 31 }, (_, k) => k + 1);
+] as const;

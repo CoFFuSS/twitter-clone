@@ -5,6 +5,7 @@ import { LeftSidebar } from '@/Components/LeftSidebar';
 import { RightSidebar } from '@/Components/RightSidebar';
 import { ThemeSwitcher } from '@/Components/ThemeSwitcher';
 import { collectionsWithPaths, searchFieldsInCollection } from '@/constants/collections';
+import { Path } from '@/types/common';
 
 import {
   Content,
@@ -17,7 +18,7 @@ import {
 
 export const BasicLayout = () => {
   const location = useLocation();
-  const path = location.pathname;
+  const path = location.pathname as Path;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const searchConfig = {

@@ -1,6 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-export const useLockScreen = (isLocked: boolean): void => {
+export const useLockScreen = () => {
+  const [isLocked, setIsLocked] = useState<boolean>(false);
+
   useEffect(() => {
     const { body } = document;
 
@@ -14,4 +16,8 @@ export const useLockScreen = (isLocked: boolean): void => {
       body.style.overflow = 'visible';
     };
   }, [isLocked]);
+
+  return () => {
+    setIsLocked((prevIsLocked) => !prevIsLocked);
+  };
 };

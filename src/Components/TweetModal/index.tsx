@@ -23,31 +23,32 @@ export const TweetModal = memo(({ isShown, hide }: TweetModalProps) => {
     hide();
   };
 
-  const modal = (
-    <>
-      <Backdrop />
-      <Wrapper>
-        <ModalWindow
-          isShown={isShown}
-          data-test-id='profile-modal'
-        >
-          <Header>
-            <CloseButton
-              onClick={handleClose}
-              data-test-id='close-button'
+  return isShown
+    ? createPortal(
+        <>
+          <Backdrop />
+          <Wrapper>
+            <ModalWindow
+              isShown={isShown}
+              data-test-id='profile-modal'
             >
-              X
-            </CloseButton>
-          </Header>
-          <Content>
-            <InfoContainer>
-              <TweetInputContainer closeModal={hide} />
-            </InfoContainer>
-          </Content>
-        </ModalWindow>
-      </Wrapper>
-    </>
-  );
-
-  return isShown ? createPortal(modal, document.body) : null;
+              <Header>
+                <CloseButton
+                  onClick={handleClose}
+                  data-test-id='close-button'
+                >
+                  X
+                </CloseButton>
+              </Header>
+              <Content>
+                <InfoContainer>
+                  <TweetInputContainer closeModal={hide} />
+                </InfoContainer>
+              </Content>
+            </ModalWindow>
+          </Wrapper>
+        </>,
+        document.body,
+      )
+    : null;
 });

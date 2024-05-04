@@ -7,7 +7,7 @@ import { selectUser } from '@/store/selectors';
 import { useFetchSpecificTweet } from '@/hooks/useFetchSpecificTweet';
 
 export const TweetPage = memo(() => {
-  const [tweet] = useFetchSpecificTweet();
+  const tweet = useFetchSpecificTweet();
   const { id } = useParams();
   const { email } = useAppSelector(selectUser);
 

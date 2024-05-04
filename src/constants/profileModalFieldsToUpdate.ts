@@ -6,6 +6,6 @@ export const userFieldsToUpdate: (keyof TypeProfile)[] = [
   'phone',
   'birthday',
   'password',
-];
+] as const;
 
-export const tweetFieldsToUpdate: (keyof TypeProfile)[] = ['email', 'name'];
+export const tweetFieldsToUpdate: (keyof TypeProfile)[] = ['email', 'name'] as const;

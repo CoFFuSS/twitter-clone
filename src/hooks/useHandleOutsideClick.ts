@@ -1,12 +1,20 @@
 import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 
-export const useHandleOutsideClick = (setIsMenuOpen: Dispatch<SetStateAction<boolean>>) => {
+export const useHandleOutsideClick = (
+  setIsMenuOpen: Dispatch<SetStateAction<boolean>>,
+  isMenuOpen?: boolean,
+  toggleLockScreen?: () => void,
+) => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setIsMenuOpen(false);
+
+        if (isMenuOpen) {
+          toggleLockScreen?.();
+        }
       }
     };
 
@@ -15,7 +23,7 @@ export const useHandleOutsideClick = (setIsMenuOpen: Dispatch<SetStateAction<boo
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
-  }, [setIsMenuOpen]);
+  }, [isMenuOpen, setIsMenuOpen, toggleLockScreen]);
 
-  return [menuRef] as const;
+  return menuRef;
 };

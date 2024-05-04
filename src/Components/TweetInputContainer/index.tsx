@@ -81,7 +81,9 @@ export const TweetInputContainer = memo(({ closeModal }: TweetInputProps) => {
               placeholder='What’s happening'
               onChange={handleChange}
               value={textValue}
+              maxLength={1000}
             />
+            {textValue.length >= 1000 && <p>You input should be less than 1000</p>}
           </InputContainer>
           <ControlBlock>
             <FilenameLabel>

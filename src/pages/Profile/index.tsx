@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import ProfileBg from '@/assets/images/ProfileBg.jpg';
 import { useAppSelector } from '@/hooks/redux';
 import { selectUser } from '@/store/selectors';
@@ -34,7 +36,10 @@ export const ProfilePage = () => {
   const [isShown, toggle] = useToggleModal();
   const [tweets, isLoading] = useFetchTweets();
 
-  const filteredTweets = tweets.filter(({ tweet }) => tweet.email === email);
+  const filteredTweets = useMemo(
+    () => tweets.filter(({ tweet }) => tweet.email === email),
+    [email, tweets],
+  );
 
   return (
     <>

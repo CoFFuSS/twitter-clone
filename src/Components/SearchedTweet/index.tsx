@@ -9,7 +9,7 @@ export const SearchedTweet = ({ item }: { item: SearchedTweetProps }) => {
   const { name, email, content, id } = item;
   const navigate = useNavigate();
 
-  const navigateToTweetPage = (tweetId: string) => () => {
+  const handleNavigateToTweetPage = (tweetId: string) => () => {
     navigate(`/tweet/${tweetId}`);
   };
 
@@ -19,7 +19,7 @@ export const SearchedTweet = ({ item }: { item: SearchedTweetProps }) => {
         <Text>{name}</Text>
         <SubText>{getUserAddress(email)}</SubText>
       </Header>
-      <Content onClick={navigateToTweetPage(id)}>{content}</Content>
+      <Content onClick={handleNavigateToTweetPage(id)}>{content}</Content>
     </Container>
   );
 };

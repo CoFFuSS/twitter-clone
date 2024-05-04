@@ -79,7 +79,7 @@ export const PageHeader = styled.header`
   `}
 `;
 
-export const OutletWrapper = styled.div`
+export const OutletWrapper = styled.main`
   position: relative;
   display: flex;
 `;

@@ -1,6 +1,6 @@
 import { Timestamp } from 'firebase/firestore';
 
-import { SearchedUserProps } from '@/types/common';
+import { Path, SearchedUserProps } from '@/types/common';
 import profile from '@/assets/images/ProfileLogoExample.svg';
 import { ProfileContainer } from '@/Components/ProfileContainer';
 import { SearchedTweetProps } from '@/types/tweets';
@@ -49,12 +49,12 @@ export interface ComponentByPath {
   '/profile': ({ item }: { item: SearchedTweetProps }) => JSX.Element;
 }
 
-export const componentsByPath: Record<string, ComponentByPath[keyof ComponentByPath]> = {
+export const componentsByPath: Record<Path, ComponentByPath[keyof ComponentByPath]> = {
   '/': ProfileContainer,
   '/profile': SearchedTweet,
 };
 
-export const itemsByPath: Record<string, SearchedTweetProps[] | SearchedUserProps[]> = {
+export const itemsByPath: Record<Path, SearchedTweetProps[] | SearchedUserProps[]> = {
   '/': mockUsers,
   '/profile': mockTweets,
 };

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const Wrapper = styled.article`
+export const Article = styled.article`
   ${({ theme }) => css`
     display: flex;
     flex-direction: row;

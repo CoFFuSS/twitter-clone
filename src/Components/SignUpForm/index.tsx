@@ -10,13 +10,13 @@ import { Select } from '@/Components/Select';
 
 import {
   DateContainer,
+  Form,
   FormName,
   InfoBlockSpan,
   InfoText,
   InputFieldsContainer,
   RouterSpan,
   SignInButton,
-  Wrapper,
 } from './styled';
 
 export const SignUpForm = ({ disabled, onSubmit }: SignUpFormProps) => {
@@ -27,7 +27,7 @@ export const SignUpForm = ({ disabled, onSubmit }: SignUpFormProps) => {
   } = useForm<TypeSignup>({ resolver: zodResolver(signupSchema), mode: 'onChange' });
 
   return (
-    <Wrapper onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <FormName>Create an account</FormName>
       <InputFieldsContainer>
         {SignUpInputFields.map(({ placeholder, name, type }) => (
@@ -75,6 +75,6 @@ export const SignUpForm = ({ disabled, onSubmit }: SignUpFormProps) => {
       >
         Next
       </SignInButton>
-    </Wrapper>
+    </Form>
   );
 };

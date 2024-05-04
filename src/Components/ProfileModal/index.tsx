@@ -60,14 +60,14 @@ export const ProfileModal = ({ isShown, hide }: ProfileModalProps) => {
       const userQuery = query(collection(db, Collections.Users), where('id', '==', id));
       const userSnapshot = await getDocs(userQuery);
 
-      const tweetQuery = query(collection(db, Collections.Posts), where('email', '==', email));
-      const tweetSnapshot = await getDocs(tweetQuery);
-
       if (userSnapshot.empty) {
         console.error('Nu user');
 
         return;
       }
+
+      const tweetQuery = query(collection(db, Collections.Posts), where('email', '==', email));
+      const tweetSnapshot = await getDocs(tweetQuery);
 
       const userDocRef = userSnapshot.docs[0].ref;
 
@@ -115,45 +115,47 @@ export const ProfileModal = ({ isShown, hide }: ProfileModalProps) => {
     }
   };
 
-  const modal = (
-    <>
-      <Backdrop />
-      <Wrapper>
-        <ModalWindow
-          isShown={isShown}
-          data-test-id='profile-modal'
-        >
-          <Header>
-            <HeaderText>Change User data</HeaderText>
-            <CloseButton
-              onClick={handleClose}
-              data-test-id='close-button'
-            >
-              X
-            </CloseButton>
-          </Header>
-          <Content>
-            <InfoContainer onSubmit={handleSubmit(onSubmit)}>
-              {profileInputs.map(({ placeholder, type, name }) => (
-                <InputWrapper key={name}>
-                  <InputField
-                    {...register(name)}
-                    placeholder={placeholder}
-                    type={type}
-                    name={name}
-                  />
-                  {errors[name] && <p>{errors[name]?.message}</p>}
-                </InputWrapper>
-              ))}
-              <SubmitButtonContainer>
-                <DefaultButton>Change user data</DefaultButton>
-              </SubmitButtonContainer>
-            </InfoContainer>
-          </Content>
-        </ModalWindow>
-      </Wrapper>
-    </>
+  return (
+    isShown &&
+    createPortal(
+      <>
+        <Backdrop />
+        <Wrapper>
+          <ModalWindow
+            isShown={isShown}
+            data-test-id='profile-modal'
+          >
+            <Header>
+              <HeaderText>Change User data</HeaderText>
+              <CloseButton
+                onClick={handleClose}
+                data-test-id='close-button'
+              >
+                X
+              </CloseButton>
+            </Header>
+            <Content>
+              <InfoContainer onSubmit={handleSubmit(onSubmit)}>
+                {profileInputs.map(({ placeholder, type, name }) => (
+                  <InputWrapper key={name}>
+                    <InputField
+                      {...register(name)}
+                      placeholder={placeholder}
+                      type={type}
+                      name={name}
+                    />
+                    {errors[name] && <p>{errors[name]?.message}</p>}
+                  </InputWrapper>
+                ))}
+                <SubmitButtonContainer>
+                  <DefaultButton>Change user data</DefaultButton>
+                </SubmitButtonContainer>
+              </InfoContainer>
+            </Content>
+          </ModalWindow>
+        </Wrapper>
+      </>,
+      document.body,
+    )
   );
-
-  return isShown && createPortal(modal, document.body);
 };

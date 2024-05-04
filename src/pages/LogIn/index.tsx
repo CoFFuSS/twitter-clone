@@ -25,14 +25,20 @@ export const LogInPage = () => {
   const { reset } = useForm<TypeLogIn>({ resolver: zodResolver(logInSchema) });
   const dispatch = useDispatch();
 
-  const onSubmit: SubmitHandler<TypeLogIn> = async ({ identifier, password }: LogInputs) => {
+  const handleSubmit: SubmitHandler<TypeLogIn> = async ({ identifier, password }: LogInputs) => {
     try {
       setDisabled(true);
       const isPhoneValid = isValidPhone(identifier);
       const isEmailValid = isValidEmail(identifier);
 
-      if (!isPhoneValid || !isEmailValid) {
-        const { userData, token } = await getUserData(isPhoneValid, identifier, password);
+      if (isPhoneValid && isEmailValid) {
+        return;
+      }
+
+      const userDataResponse = await getUserData(isPhoneValid, identifier, password);
+
+      if (userDataResponse !== null) {
+        const { userData, token } = userDataResponse;
 
         if (token) {
           dispatch(setUser({ ...(userData as UserState), token }));
@@ -58,7 +64,7 @@ export const LogInPage = () => {
         />
       </LogoContainer>
       <LogInForm
-        onSubmit={onSubmit}
+        onSubmit={handleSubmit}
         disabled={disabled}
       />
     </Wrapper>

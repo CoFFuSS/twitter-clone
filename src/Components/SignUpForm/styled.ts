@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { DefaultButton } from '@/Components/Button/styled';
 
-export const Wrapper = styled.form`
+export const Form = styled.form`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;

@@ -20,5 +20,5 @@ export const getUserData = async (isPhoneValid: boolean, identifier: string, pas
     return { userData, token };
   }
 
-  return {};
+  return null;
 };

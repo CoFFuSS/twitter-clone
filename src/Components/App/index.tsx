@@ -3,21 +3,19 @@ import { ThemeProvider } from 'styled-components';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 
-import { darkTheme, lightTheme } from '@/theme';
 import { ErrorBoundary } from '@/Components/ErrorBoundary';
 import { authorizedRoutes, unAuthorizedRoutes } from '@/constants/routes';
 import { auth } from '@/firebase';
 import { RoutesEnum } from '@/constants/routesEnum';
-import { useAppSelector } from '@/hooks/redux';
-import { selectTheme } from '@/store/selectors';
 import { BasicLayout } from '@/Components/BasicLayout';
+import { useTheme } from '@/hooks/useTheme';
 
 import { GlobalStyle } from './styled';
 
 export const App = () => {
   const [isAuthorized, setIsAuthorized] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const currentTheme = useAppSelector(selectTheme);
+  const currentTheme = useTheme();
 
   useEffect(
     () =>
@@ -29,7 +27,7 @@ export const App = () => {
   );
 
   return (
-    <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
+    <ThemeProvider theme={currentTheme}>
       <BrowserRouter>
         <ErrorBoundary>
           <GlobalStyle />

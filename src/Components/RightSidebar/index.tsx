@@ -4,9 +4,9 @@ import { useLocation } from 'react-router-dom';
 import { SearchIcon } from '@/Components/Icons/SearchIcon';
 import { Collections } from '@/constants/collections';
 import { useDebounce } from '@/hooks/useDebounce';
-import { SearchedUserProps } from '@/types/common';
+import { Path, SearchedUserProps } from '@/types/common';
 import { SearchedTweetProps } from '@/types/tweets';
-import { ComponentByPath, componentsByPath } from '@/constants/getByPath';
+import { componentsByPath } from '@/constants/getByPath';
 import { useFetchData } from '@/hooks/useFetchData';
 
 import { SearchInput, SearchInputContainer, SearchResult, SearchSidebar, Text } from './styled';
@@ -25,7 +25,7 @@ export const RightSidebar = memo(
     const location = useLocation();
     const [inputValue, setInputValue] = useState<string>('');
     const [items, setItems] = useState<SearchedTweetProps[] | SearchedUserProps[]>([]);
-    const [debouncedInputValue] = useDebounce(inputValue, 500);
+    const debouncedInputValue = useDebounce(inputValue, 500);
     useFetchData(setItems, debouncedInputValue, { collectionName, searchField });
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -46,7 +46,7 @@ export const RightSidebar = memo(
         <SearchResult data-cy='searchbar'>
           <Text>{debouncedInputValue ? 'Search results' : 'You might like'}</Text>
           {items?.map((item) => {
-            const path = location.pathname as keyof ComponentByPath;
+            const path = location.pathname as Path;
             const Component = componentsByPath[path] || componentsByPath['/'];
 
             return (

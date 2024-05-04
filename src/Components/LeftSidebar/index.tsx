@@ -39,9 +39,9 @@ export interface LeftSidebarProps {
 export const LeftSidebar = ({ isMenuOpen, setIsMenuOpen }: LeftSidebarProps) => {
   const [isShown, toggle] = useToggleModal();
   const { name, email } = useAppSelector(selectUser);
-  const [menuRef] = useHandleOutsideClick(setIsMenuOpen);
+  const toggleLockScreen = useLockScreen();
+  const menuRef = useHandleOutsideClick(setIsMenuOpen, isMenuOpen, toggleLockScreen);
 
-  useLockScreen(isMenuOpen);
   const dispatch = useDispatch();
 
   const handleLogOut = () => {
@@ -55,6 +55,7 @@ export const LeftSidebar = ({ isMenuOpen, setIsMenuOpen }: LeftSidebarProps) => 
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    toggleLockScreen();
   };
 
   return (

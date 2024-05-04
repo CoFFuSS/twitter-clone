@@ -1,6 +1,7 @@
 import { TypeSignup } from '@/utils/signUpFormSchema';
+import { days, years } from '@/mock/dates';
 
-import { days, months, years } from './datesSelect';
+import { months } from './datesSelect';
 
 interface TypeSignupInput {
   placeholder: string;
@@ -10,7 +11,7 @@ interface TypeSignupInput {
 
 interface TypeSignUpDateInputFields {
   placeholder: string;
-  options: string[] | number[];
+  options: readonly string[] | number[];
   name: keyof Omit<TypeSignup, 'name' | 'phone' | 'email' | 'password'>;
   width: string;
 }

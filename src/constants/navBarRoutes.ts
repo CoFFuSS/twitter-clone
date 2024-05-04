@@ -50,4 +50,4 @@ export const navBarRoutes = [
     element: 'More',
     icon: MoreIcon,
   },
-];
+] as const;

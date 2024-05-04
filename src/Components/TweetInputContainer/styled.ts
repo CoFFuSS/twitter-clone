@@ -21,22 +21,20 @@ export const TweetFieldContainer = styled.div`
 `;
 
 export const TweetInputBlock = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: ${theme.spacing(170)};
-  `}
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
 `;
 
 export const InputContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
-    width: 100%;
-    height: ${theme.spacing(60)};
+    flex-direction: column;
+    height: ${theme.spacing(120)};
 
-    ${theme.media.md`
-      height: ${theme.spacing(100)};
+    ${theme.media.lg`
+      height: ${theme.spacing(170)};
     `}
   `}
 `;
@@ -46,7 +44,7 @@ export const TweetInput = styled.textarea`
     resize: none;
 
     width: 100%;
-    height: ${theme.spacing(60)};
+    height: 100%;
 
     color: ${theme.colors.secondary};
 

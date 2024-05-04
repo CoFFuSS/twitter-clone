@@ -27,5 +27,5 @@ export const useFetchSpecificTweet = () => {
     getTweet();
   }, [id]);
 
-  return [tweet] as const;
+  return tweet;
 };

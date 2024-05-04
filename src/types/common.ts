@@ -1,3 +1,5 @@
+export type Path = '/' | '/profile';
+
 export interface UserState {
   token: string;
   name: string;
