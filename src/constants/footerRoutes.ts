@@ -1,0 +1,18 @@
+export const FooterRoutes = [
+  'About',
+  'Help Center',
+  'Terms of Service',
+  'Privacy Policy',
+  'Cookie Policy',
+  'Ads info',
+  'Blog',
+  'Status',
+  'Carrres',
+  'Brand Resources',
+  'Advertsing',
+  'Marketing',
+  'Twitter for Business',
+  'Developers',
+  'Directory',
+  'Settings',
+] as const;
